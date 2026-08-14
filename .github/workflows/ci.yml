@@ -36,6 +36,7 @@ jobs:
           ruff format --check .
 
       - name: Type check
+        if: matrix.python-version == '3.10'
         run: mypy -p ear_grpo_reasoning
 
       - name: Test
