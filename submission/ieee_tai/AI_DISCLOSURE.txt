@@ -1,0 +1,21 @@
+================================================================================
+IEEE AUTHOR AI-GENERATED TEXT & CODE DISCLOSURE STATEMENT
+================================================================================
+Manuscript Title:
+When Confidence Proxies Confound Reasoning Complexity: Pitfalls of Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning
+
+Author:
+Sham Thakare (Independent Researcher)
+
+Disclosure:
+In accordance with IEEE Author Guidelines and IEEE Publication Services and Products Board (PSPB) Operations Manual policies regarding generative AI systems:
+
+1. AI Assistance in Code & Script Development:
+   Generative AI assistance (Google Antigravity / Gemini models) was utilized during the development, refactoring, and execution monitoring of experimental training scripts, LaTeX formatting, and statistical analysis pipelines.
+
+2. Human Responsibility & Empirical Verification:
+   All experimental procedures, neural network weight executions, forward/backward passes, statistical hypothesis tests, and evaluation metrics were executed on dedicated hardware, inspected, and verified by the author. All bibliographic references were verified against authoritative publisher records. The author assumes full responsibility for the integrity, validity, and accuracy of all scientific claims, data, and conclusions presented in this manuscript.
+
+3. Authorship:
+   No AI system is listed as an author or co-author.
+================================================================================

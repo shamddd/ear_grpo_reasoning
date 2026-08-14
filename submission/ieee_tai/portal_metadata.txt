@@ -1,0 +1,24 @@
+================================================================================
+IEEE TRANSACTIONS ON ARTIFICIAL INTELLIGENCE (TAI) - SUBMISSION METADATA
+================================================================================
+Title:
+When Confidence Proxies Confound Reasoning Complexity: Pitfalls of Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning
+
+Authors:
+Sham Thakare (Independent Researcher, shamthakare3000@gmail.com)
+
+Keywords:
+Reinforcement learning, Group Relative Policy Optimization (GRPO), Large Language Models, uncertainty estimation, self-consistency, reasoning complexity, post-training.
+
+Abstract (Word count: 204 words):
+Reinforcement learning from rule-based verifiers (RLVR), notably Group Relative Policy Optimization (GRPO), has emerged as a cornerstone for post-training Large Language Models (LLMs) on complex reasoning tasks. A natural hypothesis is that regularizing policy gradient advantages by trajectory-level uncertainty could prevent policy collapse and filter noisy exploration traces. In this work, we conduct a systematic empirical and architectural audit of uncertainty-regularized GRPO. First, we show that Monte Carlo (MC) dropout probing becomes degenerate when the target architecture lacks active dropout in its evaluated forward graph, as confirmed on Qwen2.5. Second, through diagnostic evaluations on untouched GSM8K and SVAMP datasets (N=100), we find that internal confidence proxies—token predictive entropy (r = +0.486), mean token negative log-likelihood (r = +0.432), and logit margins (r = +0.495)—are strongly correlated with derivation length and arithmetic step complexity. In stress tests, internal token entropy misidentifies correct multi-step reasoning traces as more uncertain than short incorrect errors in 42.1% of paired comparisons. While external consensus disagreement (Self-Consistency) provides unconfounded offline error discrimination (AUROC = 0.812), a preregistered 5-way controlled RL experiment demonstrates that using consensus weights for online advantage scaling yields no performance improvement over standard outcome-supervised GRPO (80.00% vs 80.00%; Delta = 0.00%). Our findings demonstrate that high offline error-predictive validity does not guarantee online reinforcement learning credit utility, establishing the necessity of negative controls when evaluating confidence-guided post-training algorithms.
+
+Impact Statement (Word count: 114 words):
+Reinforcement learning algorithms for Large Language Models increasingly govern automated reasoning systems in mathematics, coding, and decision support. Integrating confidence or uncertainty weights into policy gradient updates is frequently proposed to prevent reward hacking and model drift. This work provides a rigorous methodological warning: internal uncertainty signals frequently track legitimate reasoning complexity rather than error, causing naive uncertainty-weighted algorithms to suppress valid multi-step exploration. By establishing that offline error predictors do not automatically improve online policy learning, our study provides a reproducible diagnostic framework and negative-control protocol to prevent the adoption of unverified or counterproductive credit assignment mechanisms.
+
+Data & Code Availability:
+All source code, scripts, raw execution logs, and data splits are openly available at https://github.com/shamddd/ear_grpo_reasoning under the MIT License.
+
+Conflict of Interest / Funding Declaration:
+The author declares no competing financial or non-financial interests. This research received no external grant funding.
+================================================================================

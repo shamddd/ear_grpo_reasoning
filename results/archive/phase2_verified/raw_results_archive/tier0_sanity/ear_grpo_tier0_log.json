@@ -1,0 +1,52 @@
+[
+  {
+    "step": 1,
+    "loss": -0.2943221926689148,
+    "policy_loss": -0.0,
+    "kl_div": -7.358055114746094,
+    "mean_reward": 0.0,
+    "mean_epistemic_var": 116322.25,
+    "mean_dampening": 0.7400397062301636,
+    "entropy": 3.987415075302124
+  },
+  {
+    "step": 2,
+    "loss": -0.30477696657180786,
+    "policy_loss": -0.035355594009160995,
+    "kl_div": -6.73553466796875,
+    "mean_reward": 0.25,
+    "mean_epistemic_var": 35218.2890625,
+    "mean_dampening": 0.26165711879730225,
+    "entropy": 3.6310441493988037
+  },
+  {
+    "step": 3,
+    "loss": -0.3845056891441345,
+    "policy_loss": -0.0,
+    "kl_div": -9.612642288208008,
+    "mean_reward": 0.0,
+    "mean_epistemic_var": 39573.97265625,
+    "mean_dampening": 0.6393325328826904,
+    "entropy": 3.9451816082000732
+  },
+  {
+    "step": 4,
+    "loss": -0.19259384274482727,
+    "policy_loss": -0.0,
+    "kl_div": -4.814846038818359,
+    "mean_reward": 0.0,
+    "mean_epistemic_var": 62796.23828125,
+    "mean_dampening": 0.6562564969062805,
+    "entropy": 3.4702506065368652
+  },
+  {
+    "step": 5,
+    "loss": -0.5610874891281128,
+    "policy_loss": -0.09002313017845154,
+    "kl_div": -11.77660846710205,
+    "mean_reward": 0.25,
+    "mean_epistemic_var": 47910.69140625,
+    "mean_dampening": 0.680398166179657,
+    "entropy": 3.542250871658325
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "GRPO_baseline": {
+    "in_dist_gsm8k": 74.1,
+    "ood_svamp": 61.8,
+    "ood_gsm_hard": 55.4,
+    "transfer_ratio_svamp": 0.8340080971659919
+  },
+  "EAR_GRPO_proposed": {
+    "in_dist_gsm8k": 78.4,
+    "ood_svamp": 69.2,
+    "ood_gsm_hard": 64.1,
+    "transfer_ratio_svamp": 0.8826530612244897
+  }
+}

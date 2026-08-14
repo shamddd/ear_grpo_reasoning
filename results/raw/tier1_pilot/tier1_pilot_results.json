@@ -1,0 +1,720 @@
+{
+  "summary": {
+    "Standard-GRPO": {
+      "mean_pass1": 0.0,
+      "std_pass1": 0.0,
+      "mean_entropy": 3.809436241785685,
+      "raw_accs": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "Compute-Matched-GRPO": {
+      "mean_pass1": 0.0,
+      "std_pass1": 0.0,
+      "mean_entropy": 4.625163237253825,
+      "raw_accs": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "Random-Control": {
+      "mean_pass1": 0.0,
+      "std_pass1": 0.0,
+      "mean_entropy": 5.473282337188721,
+      "raw_accs": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "Permuted-Control": {
+      "mean_pass1": 0.0,
+      "std_pass1": 0.0,
+      "mean_entropy": 6.516185760498047,
+      "raw_accs": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "EAR-GRPO": {
+      "mean_pass1": 0.0,
+      "std_pass1": 0.0,
+      "mean_entropy": 7.559649308522542,
+      "raw_accs": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "runs": {
+    "Standard-GRPO": [
+      {
+        "seed": 42,
+        "method": "Standard-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 3.759960412979126,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.14664186537265778,
+              "policy_loss": -0.0,
+              "kl_div": -3.666046619415283,
+              "mean_reward": 0.0,
+              "entropy": 4.057834148406982
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.20123715698719025,
+              "policy_loss": -0.0,
+              "kl_div": -5.030929088592529,
+              "mean_reward": 0.0,
+              "entropy": 3.759960412979126
+            }
+          }
+        ]
+      },
+      {
+        "seed": 100,
+        "method": "Standard-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 3.83898663520813,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.32229286432266235,
+              "policy_loss": -0.0,
+              "kl_div": -8.057321548461914,
+              "mean_reward": 0.0,
+              "entropy": 4.14927864074707
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.17864280939102173,
+              "policy_loss": -0.0,
+              "kl_div": -4.466070175170898,
+              "mean_reward": 0.0,
+              "entropy": 3.83898663520813
+            }
+          }
+        ]
+      },
+      {
+        "seed": 2024,
+        "method": "Standard-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 3.8293616771698,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.28950050473213196,
+              "policy_loss": -0.0,
+              "kl_div": -7.237512588500977,
+              "mean_reward": 0.0,
+              "entropy": 4.361915588378906
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.2493860125541687,
+              "policy_loss": -0.0,
+              "kl_div": -6.234650611877441,
+              "mean_reward": 0.0,
+              "entropy": 3.8293616771698
+            }
+          }
+        ]
+      }
+    ],
+    "Compute-Matched-GRPO": [
+      {
+        "seed": 42,
+        "method": "Compute-Matched-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 4.521642684936523,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.3442468047142029,
+              "policy_loss": -0.0,
+              "kl_div": -8.606170654296875,
+              "mean_reward": 0.0,
+              "entropy": 4.540098190307617
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.512812077999115,
+              "policy_loss": -0.0,
+              "kl_div": -12.82030200958252,
+              "mean_reward": 0.0,
+              "entropy": 4.521642684936523
+            }
+          }
+        ]
+      },
+      {
+        "seed": 100,
+        "method": "Compute-Matched-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 4.532073020935059,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.4781040549278259,
+              "policy_loss": -0.0,
+              "kl_div": -11.952601432800293,
+              "mean_reward": 0.0,
+              "entropy": 4.756180286407471
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.3744438886642456,
+              "policy_loss": -0.0,
+              "kl_div": -9.36109733581543,
+              "mean_reward": 0.0,
+              "entropy": 4.532073020935059
+            }
+          }
+        ]
+      },
+      {
+        "seed": 2024,
+        "method": "Compute-Matched-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 4.821774005889893,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.3182949423789978,
+              "policy_loss": -0.0,
+              "kl_div": -7.95737361907959,
+              "mean_reward": 0.0,
+              "entropy": 5.189421653747559
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.3992798924446106,
+              "policy_loss": -0.0,
+              "kl_div": -9.9819974899292,
+              "mean_reward": 0.0,
+              "entropy": 4.821774005889893
+            }
+          }
+        ]
+      }
+    ],
+    "Random-Control": [
+      {
+        "seed": 42,
+        "method": "Random-Control",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 5.242394924163818,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.3492940068244934,
+              "policy_loss": -0.0,
+              "kl_div": -8.73235034942627,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 0.4667397141456604,
+              "mean_dampening": 0.6527608633041382,
+              "entropy": 5.506434440612793
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.58052659034729,
+              "policy_loss": -0.0,
+              "kl_div": -14.513164520263672,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 0.9853474497795105,
+              "mean_dampening": 0.7282834053039551,
+              "entropy": 5.242394924163818
+            }
+          }
+        ]
+      },
+      {
+        "seed": 100,
+        "method": "Random-Control",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 5.198365688323975,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.5145042538642883,
+              "policy_loss": -0.0,
+              "kl_div": -12.862606048583984,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 0.6985070705413818,
+              "mean_dampening": 0.6639729738235474,
+              "entropy": 5.816542625427246
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.27829045057296753,
+              "policy_loss": -0.0,
+              "kl_div": -6.957261085510254,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 0.40909674763679504,
+              "mean_dampening": 0.6141999959945679,
+              "entropy": 5.198365688323975
+            }
+          }
+        ]
+      },
+      {
+        "seed": 2024,
+        "method": "Random-Control",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 5.979086399078369,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.647190511226654,
+              "policy_loss": -0.0,
+              "kl_div": -16.179763793945312,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 0.3619956970214844,
+              "mean_dampening": 0.5921385288238525,
+              "entropy": 6.246042728424072
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.4216289818286896,
+              "policy_loss": -0.0,
+              "kl_div": -10.540724754333496,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 0.21819573640823364,
+              "mean_dampening": 0.6177740693092346,
+              "entropy": 5.979086399078369
+            }
+          }
+        ]
+      }
+    ],
+    "Permuted-Control": [
+      {
+        "seed": 42,
+        "method": "Permuted-Control",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 6.337419033050537,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.3873618543148041,
+              "policy_loss": -0.0,
+              "kl_div": -9.684046745300293,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 18.30547523498535,
+              "mean_dampening": 0.7611609101295471,
+              "entropy": 6.896025657653809
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.9351016283035278,
+              "policy_loss": -0.0,
+              "kl_div": -23.377540588378906,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 7.367981910705566,
+              "mean_dampening": 0.7538111805915833,
+              "entropy": 6.337419033050537
+            }
+          }
+        ]
+      },
+      {
+        "seed": 100,
+        "method": "Permuted-Control",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 6.374401569366455,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.36350497603416443,
+              "policy_loss": -0.0,
+              "kl_div": -9.087624549865723,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 12.452293395996094,
+              "mean_dampening": 0.6377846598625183,
+              "entropy": 7.223607063293457
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.37303775548934937,
+              "policy_loss": -0.0,
+              "kl_div": -9.325943946838379,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 28.021892547607422,
+              "mean_dampening": 0.5455347299575806,
+              "entropy": 6.374401569366455
+            }
+          }
+        ]
+      },
+      {
+        "seed": 2024,
+        "method": "Permuted-Control",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 6.836736679077148,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.34171438217163086,
+              "policy_loss": -0.0,
+              "kl_div": -8.54286003112793,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 18.35653305053711,
+              "mean_dampening": 0.7426668405532837,
+              "entropy": 7.375644207000732
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -1.2003540992736816,
+              "policy_loss": -0.0,
+              "kl_div": -30.008853912353516,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 126.48357391357422,
+              "mean_dampening": 0.7982224822044373,
+              "entropy": 6.836736679077148
+            }
+          }
+        ]
+      }
+    ],
+    "EAR-GRPO": [
+      {
+        "seed": 42,
+        "method": "EAR-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 7.201866149902344,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.3731934130191803,
+              "policy_loss": -0.0,
+              "kl_div": -9.329835891723633,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 13.073148727416992,
+              "mean_dampening": 0.5627478957176208,
+              "entropy": 7.925902366638184
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.3225620985031128,
+              "policy_loss": -0.0,
+              "kl_div": -8.06405258178711,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 14.782937049865723,
+              "mean_dampening": 0.7453902363777161,
+              "entropy": 7.201866149902344
+            }
+          }
+        ]
+      },
+      {
+        "seed": 100,
+        "method": "EAR-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 7.742290496826172,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.25842344760894775,
+              "policy_loss": -0.0,
+              "kl_div": -6.4605865478515625,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 7.30251932144165,
+              "mean_dampening": 0.6813204884529114,
+              "entropy": 8.033595085144043
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.9642751216888428,
+              "policy_loss": 0.09680119156837463,
+              "kl_div": -26.526906967163086,
+              "mean_reward": 0.25,
+              "mean_epistemic_var": 16.119558334350586,
+              "mean_dampening": 0.35260581970214844,
+              "entropy": 7.742290496826172
+            }
+          }
+        ]
+      },
+      {
+        "seed": 2024,
+        "method": "EAR-GRPO",
+        "pass1_accuracy": 0.0,
+        "final_entropy": 7.734791278839111,
+        "history": [
+          {
+            "step": 1,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.06822654604911804,
+              "policy_loss": -0.0,
+              "kl_div": -1.7056636810302734,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 3.606440782546997,
+              "mean_dampening": 0.7299244999885559,
+              "entropy": 8.434072494506836
+            }
+          },
+          {
+            "step": 2,
+            "rewards": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "metrics": {
+              "loss": -0.8881977796554565,
+              "policy_loss": -0.0,
+              "kl_div": -22.204944610595703,
+              "mean_reward": 0.0,
+              "mean_epistemic_var": 24.97766876220703,
+              "mean_dampening": 0.5907485485076904,
+              "entropy": 7.734791278839111
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

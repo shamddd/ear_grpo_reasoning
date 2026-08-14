@@ -1,0 +1,1616 @@
+{
+  "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+  "n": 200,
+  "correct": 160,
+  "pass1_accuracy": 80.0,
+  "ci_95_wilson": [
+    73.91449472515762,
+    84.95479020299092
+  ],
+  "truncation_rate": 0.0,
+  "parse_failure_rate": 0.0,
+  "average_generated_tokens": 232.2,
+  "total_latency_sec": 756.6117379665375,
+  "sample_records": [
+    {
+      "test_idx": 700,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 701,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 702,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 703,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 704,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 705,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 706,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 707,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 708,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 709,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 710,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 711,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 712,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 713,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 714,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 715,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 716,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 717,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 718,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 719,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 720,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 721,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 722,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 723,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 724,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 725,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 726,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 727,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 728,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 729,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 730,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 731,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 732,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 733,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 734,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 735,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 736,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 737,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 738,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 739,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 740,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 741,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 742,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 743,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 744,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 745,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 746,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 747,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 748,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 749,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 750,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 751,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 752,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 753,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 754,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 755,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 756,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 757,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 758,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 759,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 760,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 761,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 762,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 763,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 764,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 765,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 766,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 767,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 768,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 769,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 770,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 771,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 772,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 773,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 774,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 775,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 776,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 777,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 778,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 779,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 780,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 781,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 782,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 783,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 784,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 785,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 786,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 787,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 788,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 789,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 790,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 791,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 792,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 793,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 794,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 795,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 796,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 797,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 798,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 799,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 800,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 801,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 802,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 803,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 804,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 805,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 806,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 807,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 808,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 809,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 810,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 811,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 812,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 813,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 814,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 815,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 816,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 817,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 818,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 819,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 820,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 821,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 822,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 823,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 824,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 825,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 826,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 827,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 828,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 829,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 830,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 831,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 832,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 833,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 834,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 835,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 836,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 837,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 838,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 839,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 840,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 841,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 842,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 843,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 844,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 845,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 846,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 847,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 848,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 849,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 850,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 851,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 852,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 853,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 854,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 855,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 856,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 857,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 858,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 859,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 860,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 861,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 862,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 863,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 864,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 865,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 866,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 867,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 868,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 869,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 870,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 871,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 872,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 873,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 874,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 875,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 876,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 877,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 878,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 879,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 880,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 881,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 882,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 883,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 884,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 885,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 886,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 887,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 888,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 889,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 890,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 891,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 892,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 893,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 894,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    },
+    {
+      "test_idx": 895,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "generated_length": 226,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 896,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "generated_length": 239,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 897,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "generated_length": 228,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 898,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "generated_length": 235,
+      "reward": 1.0
+    },
+    {
+      "test_idx": 899,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "generated_length": 233,
+      "reward": 0.0
+    }
+  ]
+}

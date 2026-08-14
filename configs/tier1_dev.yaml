@@ -1,0 +1,32 @@
+experiment:
+  name: "tier1_sanity_check"
+  seed: 42
+  device: "cpu"  # Fallback to cpu/cuda/mps automatically in code
+
+model:
+  name: "Qwen/Qwen2.5-Math-1.5B-Instruct"
+  hidden_size: 1536
+  vocab_size: 151936
+  dropout: 0.1
+
+dataset:
+  train_dataset: "gsm8k"
+  train_split: "train[:100]"
+  val_split: "test[:50]"
+  max_prompt_length: 256
+  max_completion_length: 256
+
+rl:
+  group_size: 4
+  num_mc_samples: 3
+  clip_eps: 0.2
+  kl_beta: 0.04
+  gamma_epistemic: 0.3
+  learning_rate: 1.0e-5
+  batch_size: 2
+  gradient_accumulation_steps: 1
+  epochs: 1
+
+logging:
+  log_interval: 2
+  results_dir: "results/raw_data/tier1_sanity"

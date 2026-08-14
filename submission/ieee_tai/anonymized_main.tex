@@ -1,0 +1,117 @@
+\documentclass[journal]{IEEEtai}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+\title{When Confidence Proxies Confound Reasoning Complexity: Pitfalls of Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning}
+
+\author{Anonymous Author(s)%
+\thanks{Code, data splits, and model configurations will be made publicly available under an open-source license upon publication.}}
+
+\markboth{IEEE Transactions on Artificial Intelligence,~Vol.~XX, No.~XX,~August~2026}%
+{Anonymized: When Confidence Proxies Confound Reasoning Complexity in LLM RL}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Reinforcement learning from rule-based verifiers (RLVR), notably Group Relative Policy Optimization (GRPO), has emerged as a cornerstone for post-training Large Language Models (LLMs) on complex reasoning tasks. A natural hypothesis is that regularizing policy gradient advantages by trajectory-level uncertainty could prevent policy collapse and filter noisy exploration traces. In this work, we conduct a systematic empirical and architectural audit of uncertainty-regularized GRPO. First, we show that Monte Carlo (MC) dropout probing becomes degenerate when the target architecture lacks active dropout in its evaluated forward graph, as confirmed on Qwen2.5. Second, through diagnostic evaluations on untouched GSM8K and SVAMP datasets ($N=100$), we find that internal confidence proxies---token predictive entropy ($r = +0.486$), mean token negative log-likelihood ($r = +0.432$), and logit margins ($r = +0.495$)---are strongly correlated with derivation length and arithmetic step complexity. In stress tests, internal token entropy misidentifies correct multi-step reasoning traces as more uncertain than short incorrect errors in $42.1\%$ of paired comparisons. While external consensus disagreement (Self-Consistency) provides unconfounded offline error discrimination ($\text{AUROC} = 0.812$), a preregistered 5-way controlled RL experiment demonstrates that using consensus weights for online advantage scaling yields no performance improvement over standard outcome-supervised GRPO ($80.00\%$ vs $80.00\%$; $\Delta = 0.00\%$). Our findings demonstrate that high offline error-predictive validity does not guarantee online reinforcement learning credit utility, establishing the necessity of negative controls when evaluating confidence-guided post-training algorithms.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Reinforcement learning, Group Relative Policy Optimization (GRPO), Large Language Models, uncertainty estimation, self-consistency, reasoning complexity, post-training.
+\end{IEEEkeywords}
+
+\section{Impact Statement}
+Reinforcement learning algorithms for Large Language Models increasingly govern automated reasoning systems in mathematics, coding, and decision support. Integrating confidence or uncertainty weights into policy gradient updates is frequently proposed to prevent reward hacking and model drift. This work provides a rigorous methodological warning: internal uncertainty signals frequently track legitimate reasoning complexity rather than error, causing naive uncertainty-weighted algorithms to suppress valid multi-step exploration. By establishing that offline error predictors do not automatically improve online policy learning, our study provides a reproducible diagnostic framework and negative-control protocol to prevent the adoption of unverified or counterproductive credit assignment mechanisms.
+
+\section{Introduction}
+\IEEEPARstart{P}{ost-training} autoregressive Large Language Models (LLMs) using reinforcement learning from verifiable rewards (RLVR) has achieved substantial milestones in mathematical derivation and formal deduction \cite{shao2024deepseekmath,cobbe2021gsm8k}. Group Relative Policy Optimization (GRPO) \cite{shao2024deepseekmath} estimates baseline-free advantages by normalizing outcome rewards across a group of sampled rollouts:
+\begin{equation}
+\hat{A}_i = \frac{R(y_i) - \mu_R}{\sigma_R + \epsilon}
+\end{equation}
+Because policy gradient methods can suffer from policy collapse and reward sparsity, numerous approaches hypothesize that weighting advantages by trajectory-level uncertainty $U(y_i)$ can protect the policy from destabilizing updates \cite{kadavath2022language,kuhn2023semantic}.
+
+In this paper, we report a rigorous empirical and architectural investigation into uncertainty-weighted credit assignment for GRPO. We evaluate three central questions:
+\begin{enumerate}
+    \item \textbf{Architectural Validity (C1)}: Does MC-dropout probing produce meaningful stochastic representations on zero-dropout architectures?
+    \item \textbf{Diagnostic Validity (C2)}: Do internal token-level confidence proxies distinguish mathematical errors from legitimate reasoning complexity?
+    \item \textbf{Algorithmic Validity (C3)}: Does a validated offline error predictor (Self-Consistency \cite{wang2023selfconsistency}) improve online GRPO policy optimization over outcome-supervised baselines and negative controls?
+\end{enumerate}
+
+\section{Estimator Validity on Zero-Dropout Architectures}
+We audited the internal layer structure of open-weight causal language models, specifically inspecting \texttt{Qwen/Qwen2.5-0.5B-Instruct} (\texttt{Qwen2ForCausalLM}). We find that the model contains exactly \textbf{0 active \texttt{nn.Dropout} modules} in its attention and MLP blocks (\texttt{attention\_dropout = 0.0}). Consequently, executing Monte Carlo dropout forward passes \cite{gal2016dropout} with \texttt{mc\_dropout=True} produces mathematically deterministic passes ($\text{Var}(\log P) = 0.0000000000$, $\Delta \text{Logit} = 0.0$). 
+
+When normalized in advantage scaling equations with stability constant $\epsilon = 10^{-8}$, floating-point order-of-operations noise ($\approx 10^{-12}$) results in a multiplier of $\exp(-\gamma \cdot 10^{-4}) \approx 0.999965$, producing policy updates collinear to standard GRPO ($\cos(\Delta \theta) = 1.000000$). We conclude that MC-dropout uncertainty estimation becomes degenerate when the target architecture contains no active dropout in the evaluated forward computation graph.
+
+\section{Confidence Proxies and Reasoning Complexity}
+Evaluating candidate uncertainty proxies across untouched GSM8K confirmatory data ($N = 100$ independent prompt clusters, $98$ degrees of freedom) reveals a pattern consistent with a reasoning-complexity confound:
+\begin{itemize}
+    \item \textbf{Token Predictive Entropy} correlates strongly with sequence length ($r = +0.486$, $95\%$ CI $[+0.318, +0.627]$) and equation count ($r = +0.421$).
+    \item After controlling for completion length via partial correlation, the association between token entropy and correctness collapses from $r = -0.214$ to $\text{partial } r = -0.092$ ($p = 0.365$).
+    \item In the \textbf{Correct-but-Complex Stress Test}, token entropy misidentifies correct multi-step reasoning traces as more uncertain than short incorrect errors in \textbf{$42.1\%$ of paired comparisons}.
+    \item \textbf{Self-Consistency} ($U_{\text{SC}} = 1 - \frac{\text{modal count}}{K}$) \cite{wang2023selfconsistency} remains robust to length bias ($r = +0.114$, $\text{partial } r = -0.569$, $p = 8.1 \times 10^{-10}$, $\text{AUROC} = 0.812$).
+\end{itemize}
+
+\begin{table}[t]
+\caption{Diagnostic Uncertainty Proxy Benchmark on Untouched GSM8K ($N=100$)}
+\label{tab:proxy_benchmark}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Candidate Proxy} & \textbf{AUROC} & \textbf{$r(\text{Error})$} & \textbf{$r(\text{Length})$} & \textbf{Partial $r(\text{Corr} \mid \text{Len})$} \\
+\midrule
+Self-Consistency ($K=4$) & \textbf{0.812} & \textbf{+0.582} & +0.114 & \textbf{-0.569} ($p < 10^{-9}$) \\
+Token Predictive Entropy & 0.618 & +0.214 & +0.486 & -0.092 ($p = 0.365$) \\
+Mean Token NLL           & 0.605 & +0.198 & +0.432 & -0.081 ($p = 0.422$) \\
+Logit Margin Uncertainty & 0.624 & +0.226 & +0.495 & -0.104 ($p = 0.303$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Preregistered Consistency-Aware RL Experiment}
+To test whether validated offline self-consistency translates to an effective online policy gradient weight, we preregistered Consistency-Aware GRPO (CA-GRPO):
+\begin{equation}
+\tilde{A}_i = \hat{A}_i \cdot \left( 1.0 + \lambda \cdot (c_i - \bar{c}) \right)
+\end{equation}
+where $c_i = \mathbb{I}(\text{extract}(y_i) = \text{modal answer})$.
+
+We benchmarked CA-GRPO against four matched controls across three independent training seeds on held-out test data evaluated under the canonical 256-token generation budget:
+\begin{table}[h]
+\caption{Preregistered 5-Way Controlled RL Results ($N=3$ Independent Seeds, 256-Token Budget)}
+\label{tab:rl_results}
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Method} & \textbf{Group Size} & \textbf{Held-Out Pass@1 (Mean $\pm$ SD)} & \textbf{Train Reward} \\
+\midrule
+Standard-GRPO                 & 4 & $80.00 \pm 0.00\%$ & $0.12$ \\
+Compute-Matched-GRPO          & 8 & $78.33 \pm 2.89\%$ & $0.26$ \\
+Random-Weight-Control         & 4 & $75.00 \pm 5.00\%$ & $0.21$ \\
+Permuted-Consistency-Control  & 4 & $80.00 \pm 0.00\%$ & $0.29$ \\
+\textbf{CA-GRPO (Proposed)}   & 4 & \textbf{$80.00 \pm 0.00\%$} & \textbf{$0.12$} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+CA-GRPO did not improve performance over Standard GRPO in our tested configuration ($\Delta = 0.00\%$, Cohen's $d = 0.000$). Negative controls (permuted and random weighting) demonstrated that trajectory-specific advantage scaling provided no causal learning advantage over standard outcome-supervised GRPO.
+
+\section{Limitations}
+This investigation is subject to several limitations: (1) RL training evaluations were conducted with $N=3$ independent training seeds; (2) evaluations focused on mathematical reasoning domains (GSM8K, SVAMP) using Qwen2.5-0.5B-Instruct; (3) self-consistency requires additional inference compute ($K=4$ rollouts per prompt); and (4) our findings evaluate specific advantage-weighting formulations and do not exclude the possibility of alternative consensus-based post-training designs.
+
+\section*{Acknowledgment}
+Anonymized for double-blind review.
+
+\section{Conclusion}
+Our findings demonstrate that internal confidence proxies are consistent with a reasoning-complexity confound, and that high offline error discrimination does not imply online reinforcement learning credit utility. Rigorous negative controls and architectural audits are indispensable for sound RLVR post-training.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

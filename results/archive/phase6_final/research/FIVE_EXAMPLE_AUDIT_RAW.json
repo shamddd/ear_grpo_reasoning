@@ -1,0 +1,42 @@
+[
+  {
+    "idx": 0,
+    "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+    "ground_truth": "72",
+    "full_completion": "To determine the total number of clips Natalia sold in April and May, we need to follow these steps:\n\n1. Identify the number of clips sold in April.\n2. Calculate the number of clips sold in May based on the information given.\n3. Add the number of clips sold in April and May together.\n\nStep 1: Identify the number of clips sold in April.\nNatalia sold clips to 48 of her friends in April. So, the number of clips sold in April is 48.\n\nStep 2: Calculate the number of clips sold in May.\nIn May, Natalia sold half as many clips as she did in April. Therefore, the number of clips sold in May is:\n\\[ \\frac{48}{2} = 24 \\]\n\nStep 3: Add the number of clips sold in April and May together.\nThe total number of clips sold in April and May is:\n\\[ 48 + 24 = 72 \\]\n\nThus, the total number of clips Natalia sold in April and May is \\(\\boxed{72}\\).",
+    "extracted_answer": "72",
+    "reward": 1.0
+  },
+  {
+    "idx": 1,
+    "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+    "ground_truth": "60",
+    "full_completion": "To calculate how much money Weng earned from babysitting, you can multiply her hourly rate by the number of hours she worked.\n\nHourly Rate: $12\nNumber of Hours Worked: 5\n\n$$ \\text{Total Earnings} = \\text{Hourly Rate} \\times \\text{Number of Hours Worked} $$\n\n$$ \\text{Total Earnings} = \\$12 \\times 5 $$\n\n$$ \\text{Total Earnings} = \\$60 $$\n\nSo, Weng earned $60 yesterday.",
+    "extracted_answer": "60",
+    "reward": 1.0
+  },
+  {
+    "idx": 2,
+    "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+    "ground_truth": "4",
+    "full_completion": "To determine how many weeks Betty needs to save before she can afford the camera, we need to follow these steps:\n\n1. **Calculate the amount of money Betty still needs:**\n   The camera costs $100 and Betty currently has $40.\n   \\[\n   100 - 40 = 60\n   \\]\n   So, Betty still needs $60.\n\n2. **Determine how much Betty earns per week:**\n   Betty earns $15 per week.\n\n3. **Calculate the number of weeks needed to earn $60:**\n   To find out how many weeks it will take for Betty to earn $60, we divide the remaining amount by her weekly earnings:\n   \\[\n   \\frac{60}{15} = 4\n   \\]\n   Therefore, Betty needs 4 weeks to save enough money to buy the camera.\n\nSo, the number of weeks until Betty can buy the camera is \\(\\boxed{4}\\).",
+    "extracted_answer": "4",
+    "reward": 1.0
+  },
+  {
+    "idx": 3,
+    "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+    "ground_truth": "270",
+    "full_completion": "To determine how many good apples remain after accounting for the spoiled ones, we can follow these steps:\n\n1. Calculate the total number of apples initially purchased.\n   \\[\n   \\text{Total apples} = 15 \\times 20 = 300\n   \\]\n\n2. Determine the number of apples that are not spoiled.\n   \\[\n   \\text{Good apples} = 300 - 30 = 270\n   \\]\n\nSo, the number of good apples remaining is \\(\\boxed{270}\\).",
+    "extracted_answer": "270",
+    "reward": 1.0
+  },
+  {
+    "idx": 4,
+    "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+    "ground_truth": "20",
+    "full_completion": "Step 1: Calculate the total cost of the books.\nTotal cost = number of books * price per book\nTotal cost = 3 * $15\n\nStep 2: Calculate the total amount James spent on the books.\nTotal amount spent = Total cost + Cost of backpack\nTotal amount spent = (3 * $15) + $35\n\nStep 3: Calculate the change James received.\nChange = Amount paid - Total amount spent\nChange = $100 - ($15 * 3) + $35\n\nStep 4: Simplify the expression to find the final numerical answer.\n\nFinal Answer: The change James received is -$60.",
+    "extracted_answer": "60",
+    "reward": 0.0
+  }
+]

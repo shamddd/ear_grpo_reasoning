@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "prompt": "Question: Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?\nAnswer:",
+    "ground_truth": "72",
+    "completions": [
+      " We had 17,000.\nQuestion: \"Why would you sell \"many clips\"?\nAnswer: In April, we were able to sell more than $",
+      " A couple of hundred and a half.\nQuestion: I asked the couple, \"Why did you sell all of your clips in April? Why did you sell",
+      " The number of clips was one.\nSource: The Daily Mail\nSource: BBC News\nSource: BBC News",
+      " It's difficult to say.\nNatalia's account of how she sold the clips was in some ways quite different than what I've written. To start with"
+    ],
+    "rewards": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "metrics": {
+      "loss": -0.2943221926689148,
+      "policy_loss": -0.0,
+      "kl_div": -7.358055114746094,
+      "mean_reward": 0.0,
+      "mean_epistemic_var": 116322.25,
+      "mean_dampening": 0.7400397062301636,
+      "entropy": 3.987415075302124
+    }
+  },
+  {
+    "step": 2,
+    "prompt": "Question: Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?\nAnswer:",
+    "ground_truth": "60",
+    "completions": [
+      " $12 per hour.\nQuestion: I'm a former babysitter. I worked 25 hours a week in my spare time. How much did I earn?",
+      " $6 per hour. Her husband is a salesperson on a local TV show.\nWeng makes $60 an hour. How much money did she earn",
+      " $12.00.\nAnswer: She is working part time but she is earning $12 an hour.\nYes, it is very difficult to be a",
+      " $12 an hour.\nWang: I am pretty sure she spent a lot of time in the house. I am sure she spent all of her time"
+    ],
+    "rewards": [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "metrics": {
+      "loss": -0.30477696657180786,
+      "policy_loss": -0.035355594009160995,
+      "kl_div": -6.73553466796875,
+      "mean_reward": 0.25,
+      "mean_epistemic_var": 35218.2890625,
+      "mean_dampening": 0.26165711879730225,
+      "entropy": 3.6310441493988037
+    }
+  },
+  {
+    "step": 3,
+    "prompt": "Question: Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?\nAnswer:",
+    "ground_truth": "4",
+    "completions": [
+      " The cost of making the camera will be about $5,000. Now, she is saving an hour for this new camera. She is not yet sure how",
+      " It depends on how many days she spends on her new camera. This is because the camera can only be used on certain nights, so she needs to spend a",
+      " She can, but it's not always possible. Many photographers who do film their work like to do a few weeks before shooting for an upcoming shoot, but that",
+      " It will cost $100. The camera will take about a month to buy. Betty has to go back to the store to buy it, and then pay the"
+    ],
+    "rewards": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "metrics": {
+      "loss": -0.3845056891441345,
+      "policy_loss": -0.0,
+      "kl_div": -9.612642288208008,
+      "mean_reward": 0.0,
+      "mean_epistemic_var": 39573.97265625,
+      "mean_dampening": 0.6393325328826904,
+      "entropy": 3.9451816082000732
+    }
+  },
+  {
+    "step": 4,
+    "prompt": "Question: A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?\nAnswer:",
+    "ground_truth": "270",
+    "completions": [
+      " 50 apples are spoiled. If 50 apples are spoiled, how many good apples remain?\nThis is a hypothetical question, but if a store owner is buying 15",
+      "\nA store owner buys 15 boxes of apples and a single box contains 20 apples. If 20 boxes of apples are spoiled, how many good apples remain?\n",
+      " It depends. If the box contains apples that are spoiled, then they no longer get spoiled. If the box is filled with apples, then they are spoiled.",
+      " If the store owner buys more apples than 20 boxes, then the total apples remaining in the box will be 10% less than the amount of apples that were spoiled"
+    ],
+    "rewards": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "metrics": {
+      "loss": -0.19259384274482727,
+      "policy_loss": -0.0,
+      "kl_div": -4.814846038818359,
+      "mean_reward": 0.0,
+      "mean_epistemic_var": 62796.23828125,
+      "mean_dampening": 0.6562564969062805,
+      "entropy": 3.4702506065368652
+    }
+  },
+  {
+    "step": 5,
+    "prompt": "Question: James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?\nAnswer:",
+    "ground_truth": "20",
+    "completions": [
+      " James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?\nQuestion",
+      " Approximately $25.00.\nAnswer: He bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill.",
+      " From $5 to $35.\nAnswer: From $5 to $35.\nAnswer: From $5 to $35.\nAnswer: From $",
+      " I received a $20 bill for all items when he bought it. I was told he could get a refund for the pack and not buy the entire pack again"
+    ],
+    "rewards": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "metrics": {
+      "loss": -0.5610874891281128,
+      "policy_loss": -0.09002313017845154,
+      "kl_div": -11.77660846710205,
+      "mean_reward": 0.25,
+      "mean_epistemic_var": 47910.69140625,
+      "mean_dampening": 0.680398166179657,
+      "entropy": 3.542250871658325
+    }
+  }
+]

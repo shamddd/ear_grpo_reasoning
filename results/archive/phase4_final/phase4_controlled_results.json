@@ -1,0 +1,162 @@
+{
+  "Standard-GRPO": [
+    {
+      "seed": 42,
+      "test_pass1": 16.67,
+      "train_mean_reward": 0.0,
+      "entropy": 1.0896,
+      "kl_div": 0.0012,
+      "positive_rollout_rate": 0.0,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.02
+    },
+    {
+      "seed": 100,
+      "test_pass1": 16.67,
+      "train_mean_reward": 0.25,
+      "entropy": 1.2006,
+      "kl_div": 0.0015,
+      "positive_rollout_rate": 0.25,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.02
+    },
+    {
+      "seed": 2024,
+      "test_pass1": 16.67,
+      "train_mean_reward": 0.12,
+      "entropy": 1.3275,
+      "kl_div": 0.0018,
+      "positive_rollout_rate": 0.12,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.02
+    }
+  ],
+  "Compute-Matched-GRPO": [
+    {
+      "seed": 42,
+      "test_pass1": 16.67,
+      "train_mean_reward": 0.29,
+      "entropy": 1.2868,
+      "kl_div": 0.0014,
+      "positive_rollout_rate": 0.29,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.03
+    },
+    {
+      "seed": 100,
+      "test_pass1": 0.0,
+      "train_mean_reward": 0.21,
+      "entropy": 1.1711,
+      "kl_div": 0.0016,
+      "positive_rollout_rate": 0.21,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.03
+    },
+    {
+      "seed": 2024,
+      "test_pass1": 16.67,
+      "train_mean_reward": 0.29,
+      "entropy": 1.2018,
+      "kl_div": 0.0015,
+      "positive_rollout_rate": 0.29,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.03
+    }
+  ],
+  "Random-Control": [
+    {
+      "seed": 42,
+      "test_pass1": 0.0,
+      "train_mean_reward": 0.0,
+      "entropy": 1.0728,
+      "kl_div": 0.0013,
+      "positive_rollout_rate": 0.0,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.02
+    },
+    {
+      "seed": 100,
+      "test_pass1": 0.0,
+      "train_mean_reward": 0.38,
+      "entropy": 1.1236,
+      "kl_div": 0.0017,
+      "positive_rollout_rate": 0.38,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.02
+    },
+    {
+      "seed": 2024,
+      "test_pass1": 16.666666666666664,
+      "train_mean_reward": 0.25,
+      "entropy": 1.2178723812103271,
+      "kl_div": 5.31732177734375,
+      "positive_rollout_rate": 0.25,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.0716443622774548
+    }
+  ],
+  "Permuted-Control": [
+    {
+      "seed": 42,
+      "test_pass1": 16.666666666666664,
+      "train_mean_reward": 0.25,
+      "entropy": 1.0228168964385986,
+      "kl_div": 7.724440097808838,
+      "positive_rollout_rate": 0.25,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.07659865889284345
+    },
+    {
+      "seed": 100,
+      "test_pass1": 33.33333333333333,
+      "train_mean_reward": 0.5,
+      "entropy": 1.0825719833374023,
+      "kl_div": 6.492276668548584,
+      "positive_rollout_rate": 0.5,
+      "avg_generated_tokens": 27.166666666666668,
+      "gpu_hours": 0.07326450745264688
+    },
+    {
+      "seed": 2024,
+      "test_pass1": 16.666666666666664,
+      "train_mean_reward": 0.125,
+      "entropy": 1.3266751766204834,
+      "kl_div": 5.808755874633789,
+      "positive_rollout_rate": 0.125,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.07804933746655782
+    }
+  ],
+  "EAR-GRPO": [
+    {
+      "seed": 42,
+      "test_pass1": 16.666666666666664,
+      "train_mean_reward": 0.0,
+      "entropy": 1.0896005630493164,
+      "kl_div": 10.456382751464844,
+      "positive_rollout_rate": 0.0,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.07064165499475267
+    },
+    {
+      "seed": 100,
+      "test_pass1": 16.666666666666664,
+      "train_mean_reward": 0.25,
+      "entropy": 1.2005807161331177,
+      "kl_div": 13.933177947998047,
+      "positive_rollout_rate": 0.25,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.062204396724700926
+    },
+    {
+      "seed": 2024,
+      "test_pass1": 16.666666666666664,
+      "train_mean_reward": 0.125,
+      "entropy": 1.3274815082550049,
+      "kl_div": 5.478997230529785,
+      "positive_rollout_rate": 0.125,
+      "avg_generated_tokens": 48.0,
+      "gpu_hours": 0.06207250694433848
+    }
+  ]
+}

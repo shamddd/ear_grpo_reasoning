@@ -1,0 +1,22 @@
+To the Editor-in-Chief,
+IEEE Transactions on Artificial Intelligence
+
+Dear Editor,
+
+I am pleased to submit our original research manuscript titled "When Confidence Proxies Confound Reasoning Complexity: Pitfalls of Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning" for consideration as a regular research paper in IEEE Transactions on Artificial Intelligence.
+
+This work addresses a timely and critical methodological question in LLM post-training: Can trajectory-level confidence or uncertainty signals be used to regularize policy gradient updates (e.g. in GRPO) for mathematical reasoning? Through an empirical and architectural investigation across seven distinct phases, our study contributes three key findings:
+1. We demonstrate that hidden-state Monte Carlo dropout probing is structurally inactive on modern open-weight architectures (e.g., Qwen2.5) due to zero-dropout pretraining.
+2. We show through diagnostic benchmarks on untouched GSM8K and SVAMP data that internal token-level confidence proxies (entropy, NLL, logit margin) strongly confound derivation length and algebraic complexity with error, leading to the misidentification of correct complex solutions as "uncertain" in 42.1% of stress-test cases.
+3. In a preregistered 5-way controlled RL experiment, we show that external consensus agreement (Self-Consistency), despite strong offline error discrimination (AUROC = 0.812), provides zero performance gain over standard outcome-supervised GRPO in the online RL inner loop (Delta = 0.00%).
+
+We believe these findings provide a vital methodological foundation and negative-control standard for the growing AI and machine learning community investigating post-training reinforcement learning.
+
+This manuscript is original work and has not been published or submitted simultaneously to any other peer-reviewed venue. All code, datasets, and execution seeds are fully open-source and reproducible.
+
+Thank you for your consideration of our manuscript.
+
+Sincerely,
+Sham Thakare
+Independent Researcher
+shamthakare3000@gmail.com

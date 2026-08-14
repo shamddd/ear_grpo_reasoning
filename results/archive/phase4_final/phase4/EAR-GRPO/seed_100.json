@@ -1,0 +1,10 @@
+{
+  "seed": 100,
+  "test_pass1": 16.666666666666664,
+  "train_mean_reward": 0.25,
+  "entropy": 1.2005807161331177,
+  "kl_div": 13.933177947998047,
+  "positive_rollout_rate": 0.25,
+  "avg_generated_tokens": 48.0,
+  "gpu_hours": 0.062204396724700926
+}

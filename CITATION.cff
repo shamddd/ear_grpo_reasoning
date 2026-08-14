@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this research artifact, please cite the associated manuscript as specified below."
+title: "When Confidence Proxies Confound Reasoning Complexity: Pitfalls of Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning"
+authors:
+  - family-names: "Thakare"
+    given-names: "Sham"
+    affiliation: "Independent Researcher"
+    email: "shamthakare3000@gmail.com"
+repository-code: "https://github.com/shamddd/ear_grpo_reasoning"
+date-released: 2026-08-15
+type: article
+keywords:
+  - reinforcement-learning
+  - grpo
+  - large-language-models
+  - uncertainty-estimation
+  - self-consistency
+  - reasoning-complexity
+  - post-training

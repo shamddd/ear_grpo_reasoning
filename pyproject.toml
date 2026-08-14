@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ear_grpo_reasoning"
+version = "0.1.0"
+description = "Epistemic Advantage Regularization for Group Relative Policy Optimization in LLM Reasoning"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.40.0",
+    "numpy>=1.24.0",
+    "pyyaml>=6.0",
+    "sympy>=1.12",
+    "pytest>=7.0.0",
+    "tqdm>=4.65.0",
+    "scipy>=1.10.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

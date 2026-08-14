@@ -1,0 +1,48 @@
+{
+  "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+  "num_samples": 5,
+  "pass1_accuracy": 80.0,
+  "total_latency_sec": 171.3564600944519,
+  "sample_records": [
+    {
+      "idx": 0,
+      "question": "Natalia sold clips to 48 of her friends in April, and then in May she sold half as many clips as in April. How many clips did Natalia sell altogether in April and May?",
+      "ground_truth": "72",
+      "pred_answer": "72",
+      "raw_completion": "To determine the total number of clips Natalia sold in April and May, we need to follow these steps:\n\n1. Identify the number of clips sold in April.\n2. Calculate the number of clips sold in May based ",
+      "reward": 1.0
+    },
+    {
+      "idx": 1,
+      "question": "Weng earns $12 an hour for babysitting. Yesterday, she babysat for 5 hours. How much money did she earn?",
+      "ground_truth": "60",
+      "pred_answer": "60",
+      "raw_completion": "To calculate how much money Weng earned from babysitting, you can multiply her hourly rate by the number of hours she worked.\n\nHourly Rate: $12\nNumber of Hours Worked: 5\n\n$$ \\text{Total Earnings} = \\t",
+      "reward": 1.0
+    },
+    {
+      "idx": 2,
+      "question": "Betty is saving money for a new camera that costs $100. She has $40 already and earns $15 a week. How many weeks until she can buy the camera?",
+      "ground_truth": "4",
+      "pred_answer": "4",
+      "raw_completion": "To determine how many weeks Betty needs to save before she can afford the camera, we need to follow these steps:\n\n1. **Calculate the amount of money Betty still needs:**\n   The camera costs $100 and B",
+      "reward": 1.0
+    },
+    {
+      "idx": 3,
+      "question": "A store owner bought 15 boxes of apples. Each box contains 20 apples. If 30 apples are spoiled, how many good apples remain?",
+      "ground_truth": "270",
+      "pred_answer": "270",
+      "raw_completion": "To determine how many good apples remain after accounting for the spoiled ones, we can follow these steps:\n\n1. Calculate the total number of apples initially purchased.\n   \\[\n   \\text{Total apples} = ",
+      "reward": 1.0
+    },
+    {
+      "idx": 4,
+      "question": "James bought 3 books for $15 each and a backpack for $35. He paid with a $100 bill. How much change did he receive?",
+      "ground_truth": "20",
+      "pred_answer": "60",
+      "raw_completion": "Step 1: Calculate the total cost of the books.\nTotal cost = number of books * price per book\nTotal cost = 3 * $15\n\nStep 2: Calculate the total amount James spent on the books.\nTotal amount spent = Tot",
+      "reward": 0.0
+    }
+  ]
+}

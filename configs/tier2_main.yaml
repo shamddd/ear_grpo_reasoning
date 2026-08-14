@@ -1,0 +1,25 @@
+experiment:
+  name: "tier2_main_benchmark"
+  seeds: [42, 100, 2024, 777, 999]
+  device: "auto"
+
+models:
+  - "Qwen/Qwen2.5-Math-1.5B-Instruct"
+  - "Qwen/Qwen2.5-7B-Instruct"
+
+datasets:
+  in_distribution: "gsm8k"
+  ood_eval: "svamp"
+
+rl:
+  group_size: 8
+  num_mc_samples: 5
+  clip_eps: 0.2
+  kl_beta: 0.04
+  gamma_epistemic: 0.35
+  learning_rate: 5.0e-6
+  batch_size: 4
+  epochs: 3
+
+logging:
+  results_dir: "results/raw_data/tier2_main"
