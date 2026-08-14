@@ -1,5 +1,9 @@
 # Final Publication Readiness Assessment
 
+> **Historical self-assessment — not an editorial or peer-review decision.** The public
+> checkout does not contain enough raw provenance to reproduce every score or metric.
+> See `docs/repository-audit.md`.
+
 ## 1. Quantitative Score Breakdown
 
 | Evaluation Dimension | Weight | Score | Evaluation Justification |

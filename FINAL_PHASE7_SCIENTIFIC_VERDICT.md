@@ -1,5 +1,8 @@
 # FINAL PHASE VII SCIENTIFIC VERDICT & CAUSAL REASONING UNCERTAINTY REPORT
 
+> **Historical artifact — not independently reproduced from this public checkout.**
+> See `docs/repository-audit.md` and `results/README.md` before interpreting any metric.
+
 ## 1. Executive Scientific Ledger & 28 Protocol Answers
 
 ```text

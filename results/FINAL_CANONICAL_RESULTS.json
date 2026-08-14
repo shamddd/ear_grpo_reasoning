@@ -1,154 +1,19 @@
 {
-  "metadata": {
-    "project": "ear_grpo_reasoning",
-    "final_phase": "Phase VIII",
-    "target_model": "Qwen/Qwen2.5-0.5B-Instruct",
-    "evaluation_datasets": ["GSM8K", "SVAMP"],
-    "canonical_device": "CPU (8 threads) / Apple Silicon M1",
-    "timestamp": "2026-08-14T23:35:00Z"
+  "schema_version": "1.0.0",
+  "status": "provenance_incomplete",
+  "active_benchmark_claims": [],
+  "reason": "The public commit does not contain the Phase VII raw validation artifacts needed to regenerate the previously labeled canonical metrics. The former ledger remains available in Git history at commit 6488d32214a40c338549c4071025cd4fbec2f77e.",
+  "software_verification": {
+    "command": "python -m ear_grpo_reasoning.evaluate --config configs/evaluation.yaml",
+    "scope": "deterministic smoke fixture only",
+    "paper_result_reproduction": false
   },
-  "c1_architectural_measurements": {
-    "model_architecture": "Qwen2ForCausalLM",
-    "active_interior_dropout_modules": 0,
-    "config_attention_dropout": 0.0,
-    "config_hidden_dropout": null,
-    "wrapper_dropout_active_in_graph": false,
-    "stochastic_pass_variance": {
-      "M_2": 0.0,
-      "M_3": 0.0,
-      "M_5": 0.0,
-      "M_10": 0.0,
-      "M_20": 0.0
-    },
-    "max_absolute_logit_difference": 0.0,
-    "update_vector_cosine_similarity_ear_vs_grpo": 1.000000,
-    "relative_parameter_distance_ear_vs_grpo": 3.5e-6
-  },
-  "c2_diagnostic_proxy_measurements": {
-    "sample_size": 100,
-    "degrees_of_freedom": 98,
-    "dataset": "GSM8K_heldout_indices_800_899",
-    "proxies": {
-      "self_consistency_k4": {
-        "r_error": 0.582,
-        "r_correctness": -0.582,
-        "r_token_length": 0.114,
-        "partial_r_correctness_given_length": -0.569,
-        "partial_p_value": 8.1e-10,
-        "auroc": 0.812,
-        "auprc": 0.694,
-        "stress_test_inversion_rate_percent": 8.2
-      },
-      "token_predictive_entropy": {
-        "r_error": 0.214,
-        "r_correctness": -0.214,
-        "r_token_length": 0.486,
-        "r_arithmetic_ops": 0.452,
-        "r_equation_count": 0.421,
-        "partial_r_correctness_given_length": -0.092,
-        "partial_p_value": 0.365,
-        "auroc": 0.618,
-        "auprc": 0.412,
-        "stress_test_inversion_rate_percent": 42.1
-      },
-      "mean_token_nll": {
-        "r_error": 0.198,
-        "r_correctness": -0.198,
-        "r_token_length": 0.432,
-        "partial_r_correctness_given_length": -0.081,
-        "partial_p_value": 0.422,
-        "auroc": 0.605,
-        "auprc": 0.398,
-        "stress_test_inversion_rate_percent": 39.4
-      },
-      "logit_margin_uncertainty": {
-        "r_error": 0.226,
-        "r_correctness": -0.226,
-        "r_token_length": 0.495,
-        "partial_r_correctness_given_length": -0.104,
-        "partial_p_value": 0.303,
-        "auroc": 0.624,
-        "auprc": 0.420,
-        "stress_test_inversion_rate_percent": 41.7
-      }
-    },
-    "incremental_predictive_value": {
-      "baseline_complexity_model_auroc": 0.664,
-      "augmented_with_self_consistency_auroc": 0.812,
-      "delta_auroc": 0.148,
-      "delta_brier_score": -0.062
-    },
-    "cross_dataset_svamp": {
-      "sample_size": 100,
-      "r_self_consistency_error": 0.521,
-      "r_token_entropy_error": 0.184
-    }
-  },
-  "c3_rl_experimental_matrix": {
-    "training_budget": "2 steps per seed, Adam lr=1e-5, kl_beta=0.04",
-    "evaluation_token_budget_pilot": 48,
-    "evaluation_token_budget_full": 256,
-    "methods": {
-      "Standard-GRPO": {
-        "group_size": 4,
-        "pass1_pilot_48tok_mean": 16.67,
-        "pass1_pilot_48tok_sd": 0.00,
-        "pass1_full_256tok_mean": 80.00,
-        "pass1_full_256tok_sd": 0.00,
-        "train_mean_reward": 0.12,
-        "policy_entropy": 1.2059,
-        "kl_divergence_nats_per_token": 0.0015,
-        "total_rollout_sequences_per_seed": 8,
-        "avg_cpu_time_per_seed_sec": 73.7
-      },
-      "Compute-Matched-GRPO": {
-        "group_size": 8,
-        "pass1_pilot_48tok_mean": 11.11,
-        "pass1_pilot_48tok_sd": 9.62,
-        "pass1_full_256tok_mean": 78.33,
-        "pass1_full_256tok_sd": 2.89,
-        "train_mean_reward": 0.26,
-        "policy_entropy": 1.2199,
-        "kl_divergence_nats_per_token": 0.0015,
-        "total_rollout_sequences_per_seed": 16,
-        "avg_cpu_time_per_seed_sec": 110.0
-      },
-      "Random-Weight-Control": {
-        "group_size": 4,
-        "pass1_pilot_48tok_mean": 5.56,
-        "pass1_pilot_48tok_sd": 9.62,
-        "pass1_full_256tok_mean": 75.00,
-        "pass1_full_256tok_sd": 5.00,
-        "train_mean_reward": 0.21,
-        "policy_entropy": 1.1381,
-        "kl_divergence_nats_per_token": 0.0369,
-        "total_rollout_sequences_per_seed": 8,
-        "avg_cpu_time_per_seed_sec": 135.3
-      },
-      "Permuted-Consistency-Control": {
-        "group_size": 4,
-        "pass1_pilot_48tok_mean": 22.22,
-        "pass1_pilot_48tok_sd": 9.62,
-        "pass1_full_256tok_mean": 80.00,
-        "pass1_full_256tok_sd": 0.00,
-        "train_mean_reward": 0.29,
-        "policy_entropy": 1.1440,
-        "kl_divergence_nats_per_token": 0.1390,
-        "total_rollout_sequences_per_seed": 8,
-        "avg_cpu_time_per_seed_sec": 273.5
-      },
-      "CA-GRPO": {
-        "group_size": 4,
-        "pass1_pilot_48tok_mean": 16.67,
-        "pass1_pilot_48tok_sd": 0.00,
-        "pass1_full_256tok_mean": 80.00,
-        "pass1_full_256tok_sd": 0.00,
-        "train_mean_reward": 0.12,
-        "policy_entropy": 1.2059,
-        "kl_divergence_nats_per_token": 0.0015,
-        "total_rollout_sequences_per_seed": 8,
-        "avg_cpu_time_per_seed_sec": 233.9
-      }
-    }
-  }
+  "required_before_benchmark_reinstatement": [
+    "immutable raw prompt-level predictions",
+    "dataset revision and exact split indices",
+    "model revision and tokenizer revision",
+    "environment lock or complete package inventory",
+    "per-seed training and evaluation outputs",
+    "script-generated aggregate ledger"
+  ]
 }

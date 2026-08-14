@@ -1,5 +1,8 @@
 # EAR-GRPO Phase II: Diagnostic Pilot Verification Record
 
+> **Historical artifact — not independently reproduced from this public checkout.**
+> See `docs/repository-audit.md` and `results/README.md` before interpreting any metric.
+
 > [!WARNING]
 > **CORRECTED SCIENTIFIC CLAIM NOTICE (PHASE III AUDIT)**
 > The Phase II pilot results established that under a 16-token sparse-reward pilot configuration with `gpt2`, **all methods achieved 0.00% Pass@1 accuracy**. Therefore, EAR-GRPO is **NOT** currently demonstrated to improve math reasoning accuracy, out-of-distribution reasoning, or benchmark performance over standard GRPO. The Phase II evidence establishes **only** that EAR-GRPO modified optimization dynamics by retaining higher measured policy exploration entropy ($7.5596$ vs $3.8094$ nats).

@@ -1,5 +1,8 @@
 # Final Submission Decision & Phase VIII Research Closure
 
+> **Historical author decision record — not proof of IEEE acceptance or publication.**
+> The documented repository status is “submitted to IEEE TAI, August 2026.”
+
 ## 1. Final Submission Checklist & Answers to 22 Protocol Items
 
 ```text
