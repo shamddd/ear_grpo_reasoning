@@ -5,6 +5,7 @@ experiment:
   device: cpu
 model:
   name: builtin-deterministic-completions
+  revision: builtin-v1
   max_prompt_tokens: 64
   max_response_tokens: 32
   temperature: 0.0
@@ -12,6 +13,7 @@ model:
 data:
   name: builtin-smoke-v1
   split: verification
+  revision: builtin-v1
 algorithm:
   mode: grpo
   group_size: 4

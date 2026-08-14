@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 import torch
@@ -39,6 +40,15 @@ def _validate_inputs(
         raise TypeError("log probabilities and advantages must be floating point")
     if not all(torch.isfinite(tensor).all() for tensor in tensors):
         raise ValueError("objective inputs must contain only finite values")
+    if (
+        old_log_probs.dtype != current_log_probs.dtype
+        or reference_log_probs.dtype != current_log_probs.dtype
+    ):
+        raise TypeError("current, old, and reference log probabilities must use the same dtype")
+    if any(tensor.device != current_log_probs.device for tensor in tensors[1:]):
+        raise ValueError("all objective tensors must use the same device")
+    if completion_mask.device != current_log_probs.device:
+        raise ValueError("completion_mask must use the same device as log probabilities")
     mask = completion_mask.to(dtype=torch.bool)
     counts = mask.sum(dim=1)
     if (counts == 0).any():
@@ -63,10 +73,14 @@ def grpo_loss(
     term uses the non-negative sampled estimator ``exp(ref-current) - (ref-current) - 1``.
     """
 
-    if not 0 <= clip_epsilon < 1:
-        raise ValueError("clip_epsilon must be in [0, 1)")
-    if kl_beta < 0:
-        raise ValueError("kl_beta must be non-negative")
+    if (
+        isinstance(clip_epsilon, bool)
+        or not math.isfinite(clip_epsilon)
+        or not 0 <= clip_epsilon < 1
+    ):
+        raise ValueError("clip_epsilon must be finite and in [0, 1)")
+    if isinstance(kl_beta, bool) or not math.isfinite(kl_beta) or kl_beta < 0:
+        raise ValueError("kl_beta must be finite and non-negative")
     mask = _validate_inputs(
         current_log_probs,
         old_log_probs,
@@ -77,8 +91,18 @@ def grpo_loss(
     mask_float = mask.to(dtype=current_log_probs.dtype)
     token_counts = mask_float.sum(dim=1)
 
-    log_ratio = current_log_probs - old_log_probs
+    # Rollout and reference tensors are fixed targets even if a caller accidentally
+    # supplies tensors carrying an autograd history.
+    frozen_old_log_probs = old_log_probs.detach()
+    frozen_reference_log_probs = reference_log_probs.detach()
+    log_ratio = torch.where(
+        mask,
+        current_log_probs - frozen_old_log_probs,
+        torch.zeros_like(current_log_probs),
+    )
     ratio = torch.exp(log_ratio)
+    if not torch.isfinite(ratio).all():
+        raise ValueError("policy ratio overflowed; log-probability differences are too large")
     expanded_advantages = advantages.unsqueeze(1)
     unclipped = ratio * expanded_advantages
     clipped_ratio = ratio.clamp(1 - clip_epsilon, 1 + clip_epsilon)
@@ -87,8 +111,14 @@ def grpo_loss(
     sequence_surrogate = (token_surrogate * mask_float).sum(dim=1) / token_counts
     policy_loss = -sequence_surrogate.mean()
 
-    ref_minus_current = reference_log_probs - current_log_probs
+    ref_minus_current = torch.where(
+        mask,
+        frozen_reference_log_probs - current_log_probs,
+        torch.zeros_like(current_log_probs),
+    )
     token_kl = torch.exp(ref_minus_current) - ref_minus_current - 1.0
+    if not torch.isfinite(token_kl).all():
+        raise ValueError("sampled KL penalty overflowed")
     sequence_kl = (token_kl * mask_float).sum(dim=1) / token_counts
     kl_penalty = sequence_kl.mean()
     loss = policy_loss + kl_beta * kl_penalty

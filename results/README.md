@@ -13,3 +13,9 @@ documents.
 New local outputs belong under `results/generated/`, which is Git-ignored. Evaluation
 summaries follow `schema.json` and distinguish software verification from paper-result
 reproduction.
+
+Reproducibility levels are defined once in `docs/reproduction.md`: Level A software
+reproducibility is verified; Level B experimental reproduction lacks required historical
+inputs; Level C paper-number reproduction is not currently claimable. New experiments
+should validate against `experiment-manifest.schema.json` and leave unavailable
+provenance null or omitted rather than guessed.

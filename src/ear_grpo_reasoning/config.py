@@ -50,6 +50,7 @@ class ExperimentSettings:
 @dataclass(frozen=True)
 class ModelSettings:
     name: str = "builtin-tiny-causal-lm"
+    revision: str | None = None
     max_prompt_tokens: int = 64
     max_response_tokens: int = 32
     temperature: float = 0.7
@@ -58,6 +59,10 @@ class ModelSettings:
     def validate(self) -> None:
         if not isinstance(self.name, str) or not self.name.strip():
             raise ConfigError("model.name must not be empty")
+        if self.revision is not None and (
+            not isinstance(self.revision, str) or not self.revision.strip()
+        ):
+            raise ConfigError("model.revision must be a non-empty string or null")
         if not _is_int(self.max_prompt_tokens) or not _is_int(self.max_response_tokens):
             raise ConfigError("model token limits must be integers")
         if self.max_prompt_tokens < 1 or self.max_response_tokens < 1:
@@ -72,12 +77,17 @@ class ModelSettings:
 class DataSettings:
     name: str = "builtin-smoke-v1"
     split: str = "verification"
+    revision: str | None = None
 
     def validate(self) -> None:
         if not isinstance(self.name, str) or not isinstance(self.split, str):
             raise ConfigError("data.name and data.split must be strings")
         if not self.name.strip() or not self.split.strip():
             raise ConfigError("data.name and data.split must not be empty")
+        if self.revision is not None and (
+            not isinstance(self.revision, str) or not self.revision.strip()
+        ):
+            raise ConfigError("data.revision must be a non-empty string or null")
 
 
 @dataclass(frozen=True)

@@ -29,4 +29,7 @@ Key boundaries:
 - `evaluate.py` evaluates existing predictions; it does not hide model generation.
 - `smoke_train.py` exercises gradients with a tiny local model and clearly labels its
   output as software verification.
+- `src/models`, `src/rl`, and `src/data` are thin deprecated import bridges retained
+  solely because archived experiment scripts use those paths; the installed distribution
+  exposes only `ear_grpo_reasoning`.
 - `results/generated/` is ignored; committed results require provenance review.

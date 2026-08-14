@@ -15,10 +15,12 @@ maintained implementation evaluates the repository's exponential form:
 \widetilde{A}_i = A_i \exp(-\gamma U_i / (\sigma_U + \epsilon)).
 \]
 
-The original code divided a constant nonzero uncertainty vector by epsilon, which could
-collapse every advantage despite the vector containing no relative information. The
-maintained implementation assigns neutral weights when `std(U)` is effectively zero.
-This is a numerical degeneracy guard and is covered by tests.
+The maintained implementation evaluates the expression literally. For constant
+nonzero uncertainty, `std(U) = 0` and the denominator becomes `epsilon`; weights may
+therefore underflow toward zero. For `U = 0` or `gamma = 0`, weights are exactly one.
+Calculations use at least float32 so the configured epsilon remains representable for
+lower-precision input tensors. Inputs must be one-dimensional, finite, non-negative,
+and matched in shape, dtype, and device; batching groups implicitly is rejected.
 
 The later submitted manuscript centers on confidence-proxy diagnostics and CA-GRPO, not
 a positive EAR-GRPO performance claim. Historical EAR and CA experiment scripts are
@@ -38,9 +40,12 @@ The sampled KL estimator is
 - (\log \pi_{ref} - \log \pi_\theta) - 1,
 \]
 
-which is non-negative pointwise. Rollout log probabilities must be captured before the
-optimizer changes the policy. NaN/Inf inputs and sequences with empty completion masks
-fail loudly.
+which is the non-negative sampled `k3` integrand. Its expectation under actions sampled
+from the current policy is `KL(pi_theta || pi_ref)`; when reused rollout samples come
+from `pi_old`, it remains a non-negative sampled penalty rather than an exact analytic
+KL after the policy changes. Rollout log probabilities are detached fixed targets and
+must be captured from the policy that generated the samples before any optimizer step.
+NaN/Inf inputs, numerical overflow, and empty completion masks fail loudly.
 
 ## Reward and evaluation scope
 

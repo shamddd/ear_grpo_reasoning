@@ -32,6 +32,17 @@ class GRPOTrainer:
             raise ValueError("clip_eps must be in [0, 1)")
         if kl_beta < 0:
             raise ValueError("kl_beta must be non-negative")
+        policy_parameters = list(policy.parameters())
+        reference_parameters = list(ref_policy.parameters())
+        policy_parameter_ids = {id(parameter) for parameter in policy_parameters}
+        reference_parameter_ids = {id(parameter) for parameter in reference_parameters}
+        if policy_parameter_ids & reference_parameter_ids:
+            raise ValueError("policy and reference policy must not share parameters")
+        optimizer_parameter_ids = {
+            id(parameter) for group in optimizer.param_groups for parameter in group["params"]
+        }
+        if reference_parameter_ids & optimizer_parameter_ids:
+            raise ValueError("reference-policy parameters must not be in the optimizer")
         self.policy = policy
         self.ref_policy = ref_policy
         self.ref_policy.eval()
@@ -61,8 +72,9 @@ class GRPOTrainer:
         """Update the policy once.
 
         For fresh on-policy rollouts, omitting ``old_token_log_probs`` snapshots the
-        current values before the update. Multi-epoch reuse must pass the rollout-policy
-        log probabilities captured before the first optimizer step.
+        unchanged policy in evaluation mode before the update. This is valid only when
+        that policy generated the supplied samples. Multi-epoch reuse must pass the
+        rollout-policy log probabilities captured before the first optimizer step.
         """
 
         if input_ids_group.shape[0] != rewards_group.shape[0]:
@@ -71,8 +83,23 @@ class GRPOTrainer:
             raise ValueError("one prompt length is required per rollout")
         # Generation commonly returns inference tensors. Cloning outside inference
         # mode makes ordinary integer tensors safe for a grad-tracked policy forward.
-        input_ids_group = input_ids_group.clone()
+        input_ids_group = input_ids_group.clone().to(self.policy.device)
+        rewards_group = rewards_group.to(self.policy.device)
+        if old_token_log_probs is None:
+            self.policy.eval()
+            with torch.no_grad():
+                rollout_logits = self.policy(input_ids_group)
+                old_token_log_probs, rollout_mask = self.policy.completion_token_log_probs(
+                    input_ids_group,
+                    prompt_lengths,
+                    logits=rollout_logits,
+                )
+            old_token_log_probs = old_token_log_probs.detach()
+        else:
+            old_token_log_probs = old_token_log_probs.detach().to(self.policy.device)
+            rollout_mask = None
         self.policy.train()
+        self.ref_policy.eval()
         self.optimizer.zero_grad(set_to_none=True)
         advantages = self._advantages(rewards_group, input_ids_group, prompt_lengths)
 
@@ -82,8 +109,8 @@ class GRPOTrainer:
             prompt_lengths,
             logits=logits,
         )
-        if old_token_log_probs is None:
-            old_token_log_probs = current_log_probs.detach()
+        if rollout_mask is not None and not torch.equal(completion_mask, rollout_mask):
+            raise RuntimeError("rollout and update completion masks differ")
         with torch.no_grad():
             reference_ids = input_ids_group.to(self.ref_policy.device)
             reference_logits = self.ref_policy(reference_ids)
@@ -99,7 +126,7 @@ class GRPOTrainer:
 
         output = grpo_loss(
             current_log_probs,
-            old_token_log_probs.to(self.policy.device),
+            old_token_log_probs,
             reference_log_probs,
             advantages,
             completion_mask,

@@ -5,15 +5,16 @@ Repository evidence identifies the associated work as:
 - **Title:** *When Confidence Proxies Confound Reasoning Complexity: Pitfalls of
   Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning*
 - **Author:** Sham Thakare, Independent Researcher
-- **Venue/status:** submitted to *IEEE Transactions on Artificial Intelligence*, August
-  2026
-- **Manuscript ID:** not present in the repository
+- **Venue/status:** submitted to *IEEE Transactions on Artificial Intelligence*
+- **Submission date:** 13 August 2026
+- **Manuscript ID:** `TAI-2026-Aug-A-01875`
 - **DOI:** not present in the repository
 - **IEEE Xplore URL:** not present in the repository
 
 The maintained README and citation files do not describe the work as accepted or
-published. `submission/ieee_tai/` is treated as a submitted-artifact snapshot and is not
-rewritten by engineering changes.
+published. The manuscript ID is an editorial submission identifier, not a DOI.
+`submission/ieee_tai/` is treated as a submitted-artifact snapshot and is not rewritten
+by engineering changes.
 
 The submitted manuscript discusses three implementation areas:
 

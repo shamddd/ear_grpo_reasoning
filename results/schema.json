@@ -12,7 +12,9 @@
     "sample_count",
     "seed",
     "model",
+    "model_revision",
     "dataset",
+    "dataset_revision",
     "split",
     "config_sha256"
   ],
@@ -25,7 +27,9 @@
     "sample_count": { "type": "integer", "minimum": 1 },
     "seed": { "type": "integer", "minimum": 0 },
     "model": { "type": "string" },
+    "model_revision": { "type": ["string", "null"] },
     "dataset": { "type": "string" },
+    "dataset_revision": { "type": ["string", "null"] },
     "split": { "type": "string" },
     "config_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
   },

@@ -17,18 +17,31 @@ class TransformerReasoningPolicy(nn.Module):
     download or provider dependency.
     """
 
-    def __init__(self, model_name_or_path: str, *, device: str = "auto") -> None:
+    def __init__(
+        self,
+        model_name_or_path: str,
+        *,
+        revision: str | None = None,
+        tokenizer_revision: str | None = None,
+        device: str = "auto",
+    ) -> None:
         super().__init__()
         try:
             from transformers import AutoModelForCausalLM, AutoTokenizer
         except ImportError as exc:
             raise RuntimeError("Model adapters require `pip install -e '.[research]'`") from exc
         resolved_device = self._resolve_device(device)
-        self.tokenizer: Any = AutoTokenizer.from_pretrained(model_name_or_path)
+        tokenizer_kwargs: dict[str, Any] = {}
+        if tokenizer_revision or revision:
+            tokenizer_kwargs["revision"] = tokenizer_revision or revision
+        self.tokenizer: Any = AutoTokenizer.from_pretrained(model_name_or_path, **tokenizer_kwargs)
         if self.tokenizer.pad_token_id is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
         self.tokenizer.padding_side = "left"
-        model: Any = AutoModelForCausalLM.from_pretrained(model_name_or_path)
+        model_kwargs: dict[str, Any] = {}
+        if revision:
+            model_kwargs["revision"] = revision
+        model: Any = AutoModelForCausalLM.from_pretrained(model_name_or_path, **model_kwargs)
         model.to(resolved_device)
         self.model: Any = model
 
@@ -117,8 +130,13 @@ class TransformerReasoningPolicy(nn.Module):
         }
         if do_sample:
             generation_kwargs.update({"temperature": temperature, "top_p": top_p})
-        with torch.inference_mode():
-            outputs = self.model.generate(**encoded, **generation_kwargs)
+        was_training = self.model.training
+        self.model.eval()
+        try:
+            with torch.inference_mode():
+                outputs = self.model.generate(**encoded, **generation_kwargs)
+        finally:
+            self.model.train(was_training)
         texts = self.tokenizer.batch_decode(outputs[:, input_width:], skip_special_tokens=True)
         return outputs, list(texts)
 

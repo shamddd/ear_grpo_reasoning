@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shamddd/ear_grpo_reasoning/blob/main/results/experiment-manifest.schema.json",
+  "title": "EAR-GRPO experiment provenance manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "experiment_id",
+    "reproduction_level",
+    "status",
+    "timestamp",
+    "git_commit",
+    "config_hash",
+    "model_id",
+    "model_revision",
+    "dataset_id",
+    "dataset_revision",
+    "dataset_split",
+    "seeds",
+    "python_version",
+    "torch_version",
+    "transformers_version",
+    "cuda_version",
+    "device",
+    "gpu_model",
+    "precision",
+    "number_of_samples",
+    "number_of_updates",
+    "metrics",
+    "artifacts"
+  ],
+  "properties": {
+    "experiment_id": {"type": "string", "minLength": 1},
+    "reproduction_level": {"enum": ["A", "B", "C"]},
+    "status": {
+      "enum": ["software_verified", "experiment_reproduced", "paper_numbers_reproduced", "provenance_incomplete", "failed"]
+    },
+    "timestamp": {"type": ["string", "null"], "format": "date-time"},
+    "git_commit": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "config_hash": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "model_id": {"type": ["string", "null"]},
+    "model_revision": {"type": ["string", "null"]},
+    "tokenizer_revision": {"type": ["string", "null"]},
+    "dataset_id": {"type": ["string", "null"]},
+    "dataset_revision": {"type": ["string", "null"]},
+    "dataset_split": {"type": ["string", "null"]},
+    "seeds": {
+      "type": "array",
+      "items": {"type": "integer", "minimum": 0},
+      "uniqueItems": true
+    },
+    "python_version": {"type": ["string", "null"]},
+    "torch_version": {"type": ["string", "null"]},
+    "transformers_version": {"type": ["string", "null"]},
+    "cuda_version": {"type": ["string", "null"]},
+    "device": {"type": ["string", "null"]},
+    "gpu_model": {"type": ["string", "null"]},
+    "precision": {"type": ["string", "null"]},
+    "number_of_samples": {"type": ["integer", "null"], "minimum": 0},
+    "number_of_updates": {"type": ["integer", "null"], "minimum": 0},
+    "metrics": {"type": "object", "additionalProperties": true},
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {
+            "type": ["string", "null"],
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "notes": {"type": ["string", "null"]}
+  }
+}

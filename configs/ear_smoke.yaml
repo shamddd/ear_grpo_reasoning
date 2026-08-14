@@ -5,6 +5,7 @@ experiment:
   device: cpu
 model:
   name: builtin-tiny-causal-lm
+  revision: builtin-v1
   max_prompt_tokens: 8
   max_response_tokens: 5
   temperature: 0.7
@@ -12,6 +13,7 @@ model:
 data:
   name: builtin-smoke-v1
   split: verification
+  revision: builtin-v1
 algorithm:
   mode: ear
   group_size: 4

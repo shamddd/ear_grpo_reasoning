@@ -1,9 +1,19 @@
 # EAR-GRPO Reasoning
 
-Research code and reproducibility utilities for studying confidence- and
-uncertainty-weighted credit assignment in Group Relative Policy Optimization (GRPO).
-The repository emphasizes failure detection, negative controls, and a strict separation
-between lightweight software verification and paper-result reproduction.
+[![Research Artifact CI](https://github.com/shamddd/ear_grpo_reasoning/actions/workflows/ci.yml/badge.svg)](https://github.com/shamddd/ear_grpo_reasoning/actions/workflows/ci.yml)
+![Python 3.10–3.12](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+This project investigates whether trajectory-level confidence or uncertainty should
+reweight group-relative advantages when post-training language models with Group
+Relative Policy Optimization (GRPO). Epistemic Advantage Regularization (EAR) applies an
+exponential uncertainty weight to each rollout advantage. The research later broadened
+into an adversarial study of whether confidence proxies track errors or merely reasoning
+complexity.
+
+The maintained package verifies the EAR/GRPO mathematics, optimization mechanics,
+dataset adapter, evaluation schema, and deterministic smoke paths. It does **not**
+currently reproduce the manuscript's full historical experiments or reported numbers.
 
 ## Associated IEEE research
 
@@ -12,11 +22,13 @@ This repository contains implementation and reproducibility resources associated
 **When Confidence Proxies Confound Reasoning Complexity: Pitfalls of
 Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning**<br>
 Sham Thakare, Independent Researcher<br>
-Submitted to *IEEE Transactions on Artificial Intelligence*, August 2026
+Submitted to *IEEE Transactions on Artificial Intelligence* on 13 August 2026<br>
+Manuscript ID: `TAI-2026-Aug-A-01875`
 
-The repository contains no manuscript ID, DOI, or IEEE Xplore URL. The work is therefore
-described as **submitted**, not accepted or published. See [IEEE alignment](docs/ieee-paper.md)
-and [citation metadata](CITATION.cff).
+This identifier is a submission-system manuscript ID, not a DOI. There is no verified
+DOI, acceptance notice, publication date, or IEEE Xplore page. The work is therefore
+described as **submitted**, not accepted or published. See
+[IEEE alignment](docs/ieee-paper.md) and [citation metadata](CITATION.cff).
 
 ## Scope and current evidence status
 
@@ -39,6 +51,20 @@ This does not assert that the submitted manuscript's findings are false. It stat
 the current public artifact cannot regenerate those findings without the missing raw
 provenance.
 
+## Research findings
+
+- **Hypothesis:** uncertainty-weighted advantages might suppress unreliable positive
+  rollouts and stabilize GRPO.
+- **Recorded observation:** the archived investigation reports that MC-dropout is
+  degenerate for the evaluated zero-dropout architecture and that several internal
+  confidence proxies covary with derivation length and arithmetic complexity.
+- **Interpretation:** confidence weighting can penalize difficult or multi-step reasoning
+  rather than isolate erroneous reasoning, so offline predictive value alone is not
+  evidence of useful online credit assignment.
+- **Limitation:** the raw Phase VII artifact needed to independently regenerate the
+  manuscript tables is absent. These observations are therefore historical research
+  findings, not newly reproduced results from this checkout.
+
 ## Method
 
 For rewards \(r_i\) within a rollout group, the GRPO advantage is
@@ -54,10 +80,10 @@ information. The EAR implementation evaluates the submitted weighting form
 \widetilde{A}_i = A_i \exp\left(-\gamma U_i / (\sigma_U + \epsilon)\right).
 \]
 
-Constant uncertainty receives a neutral weight rather than division by a small epsilon:
-a constant vector cannot rank trajectories. The token-level GRPO objective uses a frozen
-rollout policy, clipping, completion/EOS masks, sequence-balanced reduction, and a
-non-negative sampled KL estimator. See [methodology](docs/methodology.md).
+The implementation evaluates this expression literally, including when uncertainty is
+constant. The token-level GRPO objective uses frozen rollout probabilities, clipping,
+completion/EOS masks, sequence-balanced reduction, and a documented non-negative
+sampled KL estimator. See [methodology](docs/methodology.md).
 
 ```mermaid
 flowchart LR
@@ -102,6 +128,18 @@ python -m ear_grpo_reasoning.evaluate --config configs/evaluation.yaml
 These commands write Git-ignored JSON under `results/generated/`. Their output says
 `software-verification-only`; neither command reproduces IEEE benchmark numbers.
 
+## Reproducibility levels
+
+- **Level A — software reproducibility:** verified installation, tests, GRPO/EAR smoke
+  paths, evaluation schema, dataset adapter, and tiny-model integration.
+- **Level B — experimental reproduction:** requires immutable model and dataset
+  revisions, seeds, hyperparameters, hardware/software inventory, checkpoints, and raw
+  logs. Those inputs are incomplete for the historical paper experiments.
+- **Level C — paper-number reproduction:** not currently claimable because the original
+  provenance is incomplete and the full experiments have not been rerun.
+
+The detailed gate and manifest requirements are in [docs/reproduction.md](docs/reproduction.md).
+
 ## Development verification
 
 ```bash
@@ -112,7 +150,8 @@ pytest -q
 python -c "import ear_grpo_reasoning"
 ```
 
-CI runs the same lightweight checks on Python 3.10, 3.11, and 3.12. See
+CI installs, tests, and runs the smoke paths on Python 3.10, 3.11, and 3.12. Static type
+checking runs once against the minimum supported Python 3.10 grammar. See
 [reproduction](docs/reproduction.md) for the clean verification protocol.
 
 ## Configuration
@@ -120,13 +159,14 @@ CI runs the same lightweight checks on Python 3.10, 3.11, and 3.12. See
 - `configs/smoke.yaml`: deterministic offline objective training.
 - `configs/ear_smoke.yaml`: deterministic offline EAR-weighted objective training.
 - `configs/evaluation.yaml`: deterministic offline verifier evaluation.
-- `configs/baseline.yaml`: explicit GRPO research configuration template.
-- `configs/ear_grpo.yaml`: explicit EAR-GRPO research configuration template.
+- `configs/baseline.yaml`: GRPO research template; model/data revisions must be filled.
+- `configs/ear_grpo.yaml`: EAR-GRPO research template; revisions must be filled.
 - `configs/tier1_dev.yaml` and `configs/tier2_main.yaml`: historical configurations;
   they predate the strict schema and are preserved only for auditability.
 
-Unknown keys and invalid group/rollout relationships fail fast. Every structured output
-includes a SHA-256 hash of the fully resolved configuration.
+Unknown keys and invalid group/rollout relationships fail fast. External adapters accept
+immutable model and dataset revisions, and every structured output includes a SHA-256
+hash of the fully resolved configuration.
 
 ## Repository structure
 
@@ -144,6 +184,17 @@ tests/                           Offline scientific and regression tests
 Historical scripts are retained to avoid hiding the research trail. They are not CI
 entry points and must not be used to reinstate claims until the provenance requirements
 in [results/README.md](results/README.md) are satisfied.
+
+## Research engineering contributions
+
+Sham Thakare — Independent Researcher
+
+- EAR uncertainty-weighted advantage implementation and degeneracy analysis
+- GRPO clipped-objective and reference-policy pipeline
+- MC-dropout uncertainty probing with zero-dropout validation
+- deterministic configuration, seeding, and structured evaluation
+- explicit benchmark adapters without silent synthetic fallback
+- negative-control and provenance-oriented research validation
 
 ## Evaluation integrity
 
@@ -174,8 +225,9 @@ silently falling back when PyTorch cannot provide a deterministic kernel.
 ## Citation
 
 Until a DOI or publication record exists, cite the software using `CITATION.cff`. The
-associated submitted manuscript metadata is provided separately in `CITATION.bib` and
-does not imply acceptance or publication.
+associated manuscript was submitted on 13 August 2026 under manuscript ID
+`TAI-2026-Aug-A-01875`; `CITATION.bib` records that submission metadata without implying
+acceptance or publication.
 
 ## License and contributing
 

@@ -16,8 +16,12 @@ def test_all_committed_configs_validate() -> None:
         load_config(path)
 
 
-def test_config_hash_is_stable() -> None:
-    assert load_config("configs/smoke.yaml").sha256 == load_config("configs/smoke.yaml").sha256
+def test_config_hash_is_stable_and_sensitive_to_resolved_values() -> None:
+    first = load_config("configs/smoke.yaml")
+    second = load_config("configs/smoke.yaml")
+    changed = config_from_dict({"experiment": {"seed": first.experiment.seed + 1}})
+    assert first.sha256 == second.sha256
+    assert first.sha256 != changed.sha256
 
 
 def test_unknown_key_is_rejected() -> None:
@@ -33,6 +37,11 @@ def test_invalid_group_relationship_is_rejected() -> None:
 def test_wrong_scalar_type_is_rejected_cleanly() -> None:
     with pytest.raises(ConfigError, match="seed"):
         config_from_dict({"experiment": {"seed": "42"}})
+
+
+def test_empty_external_revision_is_rejected() -> None:
+    with pytest.raises(ConfigError, match=r"model\.revision"):
+        config_from_dict({"model": {"revision": ""}})
 
 
 def test_missing_file_is_reported(tmp_path: Path) -> None:

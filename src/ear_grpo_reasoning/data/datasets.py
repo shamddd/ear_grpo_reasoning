@@ -52,7 +52,13 @@ class MathReasoningDataset:
     indices. This prevents a small fixture set from being mislabeled as a benchmark.
     """
 
-    def __init__(self, name: str = "gsm8k", split: str = "train") -> None:
+    def __init__(
+        self,
+        name: str = "gsm8k",
+        split: str = "train",
+        *,
+        revision: str | None = None,
+    ) -> None:
         if name != "gsm8k":
             raise ValueError("Only gsm8k is implemented; use SmokeMathDataset for offline checks")
         try:
@@ -61,7 +67,11 @@ class MathReasoningDataset:
             raise RuntimeError("External datasets require `pip install -e '.[research]'`") from exc
         self.name = name
         self.split = split
-        self._dataset = load_dataset("openai/gsm8k", "main", split=split)
+        self.revision = revision
+        load_kwargs: dict[str, Any] = {"split": split}
+        if revision is not None:
+            load_kwargs["revision"] = revision
+        self._dataset = load_dataset("openai/gsm8k", "main", **load_kwargs)
 
     def __len__(self) -> int:
         return len(self._dataset)
@@ -77,5 +87,7 @@ class MathReasoningDataset:
             question=question,
             ground_truth=ground_truth,
             solution_trace=answer,
-            source_id=f"openai/gsm8k:main:{self.split}:{index}",
+            source_id=(
+                f"openai/gsm8k@{self.revision or 'unresolved-revision'}:main:{self.split}:{index}"
+            ),
         ).as_dict()

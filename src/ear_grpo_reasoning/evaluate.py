@@ -84,7 +84,9 @@ def run_evaluation(config: ProjectConfig, output_dir: Path) -> dict[str, Any]:
         "sample_count": summary.sample_count,
         "seed": config.experiment.seed,
         "model": config.model.name,
+        "model_revision": config.model.revision,
         "dataset": config.data.name,
+        "dataset_revision": config.data.revision,
         "split": config.data.split,
         "config_sha256": config.sha256,
     }
