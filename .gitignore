@@ -1,53 +1,48 @@
-# Byte-compiled / optimized / DLL files
+# Python bytecode and tooling
 __pycache__/
 *.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual Environments
-.venv/
-venv/
-ENV/
-env/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pytest
-.pytest_cache/
 .coverage
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
 htmlcov/
 
-# Hugging Face & Model Weights
-*.safetensors
+# Builds and environments
+.Python
+.venv/
+venv/
+build/
+dist/
+wheels/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+
+# Notebook state
+.ipynb_checkpoints/
+
+# Model caches, weights, checkpoints, and generated experiment output
+/models/
+/cache/
+/checkpoints/
+/outputs/
+/wandb/
+/results/generated/
 *.bin
+*.ckpt
 *.pt
 *.pth
-checkpoints/
-models/
-cache/
-outputs/
-wandb/
+*.safetensors
 
 # LaTeX build artifacts
 *.aux
@@ -60,12 +55,5 @@ wandb/
 *.fls
 *.fdb_latexmk
 
-# OS & IDE
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
-*.swp
-
-# Private application notes (untracked in public release)
-applications/
+# Private local notes
+/applications/

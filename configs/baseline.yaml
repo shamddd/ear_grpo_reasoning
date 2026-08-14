@@ -1,0 +1,30 @@
+experiment:
+  name: grpo-baseline-template
+  seed: 42
+  deterministic: true
+  device: auto
+model:
+  name: Qwen/Qwen2.5-0.5B-Instruct
+  max_prompt_tokens: 256
+  max_response_tokens: 256
+  temperature: 0.7
+  top_p: 0.95
+data:
+  name: gsm8k
+  split: train
+algorithm:
+  mode: grpo
+  group_size: 4
+  rollout_count: 4
+  clip_epsilon: 0.2
+  kl_beta: 0.04
+  gamma_epistemic: 0.0
+  learning_rate: 0.00001
+  batch_size: 4
+  epochs: 1
+  gradient_accumulation_steps: 1
+  checkpoint_interval: 100
+  evaluation_interval: 100
+evaluation:
+  output_dir: results/generated/grpo-baseline
+  predictions_path:
