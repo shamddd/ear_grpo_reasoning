@@ -51,6 +51,13 @@ This does not assert that the submitted manuscript's findings are false. It stat
 the current public artifact cannot regenerate those findings without the missing raw
 provenance.
 
+### Version history
+
+The public `v1.0.0` tag and release are preserved as a historical IEEE submission-artifact
+snapshot; the package metadata within that snapshot declared version `0.1.0`. The
+maintained package adopts version `1.1.0` to preserve that public history and restore
+forward semantic versioning without moving or reusing the existing tag.
+
 ## Research findings
 
 - **Hypothesis:** uncertainty-weighted advantages might suppress unreliable positive

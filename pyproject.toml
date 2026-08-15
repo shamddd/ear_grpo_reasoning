@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ear-grpo-reasoning"
-version = "0.2.0"
+version = "1.1.0"
 description = "Reproducibility utilities for uncertainty-weighted GRPO research"
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
