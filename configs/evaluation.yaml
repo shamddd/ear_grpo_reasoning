@@ -1,0 +1,32 @@
+experiment:
+  name: deterministic-evaluation-smoke
+  seed: 42
+  deterministic: true
+  device: cpu
+model:
+  name: builtin-deterministic-completions
+  revision: builtin-v1
+  max_prompt_tokens: 64
+  max_response_tokens: 32
+  temperature: 0.0
+  top_p: 1.0
+data:
+  name: builtin-smoke-v1
+  split: verification
+  revision: builtin-v1
+algorithm:
+  mode: grpo
+  group_size: 4
+  rollout_count: 4
+  clip_epsilon: 0.2
+  kl_beta: 0.04
+  gamma_epistemic: 0.0
+  learning_rate: 0.01
+  batch_size: 4
+  epochs: 1
+  gradient_accumulation_steps: 1
+  checkpoint_interval: 0
+  evaluation_interval: 1
+evaluation:
+  output_dir: results/generated/evaluation-smoke
+  predictions_path:

@@ -1,0 +1,2 @@
+# Compatibility entry point. Project dependencies are bounded in pyproject.toml.
+-e .

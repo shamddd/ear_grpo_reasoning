@@ -1,5 +1,8 @@
 # FINAL PHASE VI SCIENTIFIC VERDICT & UNCERTAINTY VALIDATION REPORT
 
+> **Historical artifact — not independently reproduced from this public checkout.**
+> See `docs/repository-audit.md` and `results/README.md` before interpreting any metric.
+
 ## 1. Executive Summary & Verdict Answers
 
 ```text

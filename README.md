@@ -1,243 +1,237 @@
-# When Confidence Proxies Confound Reasoning Complexity: Pitfalls of Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning
+# EAR-GRPO Reasoning
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Reproducibility](https://img.shields.io/badge/Reproducibility-Verified-success.svg)](./REPRODUCIBILITY.md)
-[![Paper Status](https://img.shields.io/badge/Paper_Status-Submitted_to_IEEE_TAI-informational.svg)](./submission/ieee_tai/)
+[![Research Artifact CI](https://github.com/shamddd/ear_grpo_reasoning/actions/workflows/ci.yml/badge.svg)](https://github.com/shamddd/ear_grpo_reasoning/actions/workflows/ci.yml)
+![Python 3.10–3.12](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**Author:** Sham Thakare (Independent Researcher &bull; `shamthakare3000@gmail.com`)  
-**Manuscript Status:** Submitted to *IEEE Transactions on Artificial Intelligence* (IEEE TAI), August 2026.  
-**Canonical Data Ledger:** [`results/FINAL_CANONICAL_RESULTS.json`](./results/FINAL_CANONICAL_RESULTS.json)
+This project investigates whether trajectory-level confidence or uncertainty should
+reweight group-relative advantages when post-training language models with Group
+Relative Policy Optimization (GRPO). Epistemic Advantage Regularization (EAR) applies an
+exponential uncertainty weight to each rollout advantage. The research later broadened
+into an adversarial study of whether confidence proxies track errors or merely reasoning
+complexity.
 
----
+The maintained package verifies the EAR/GRPO mathematics, optimization mechanics,
+dataset adapter, evaluation schema, and deterministic smoke paths. It does **not**
+currently reproduce the manuscript's full historical experiments or reported numbers.
 
-## Overview
+## Associated IEEE research
 
-Reinforcement learning from rule-based verifiers (RLVR), notably **Group Relative Policy Optimization (GRPO)**, is a cornerstone for post-training Large Language Models (LLMs) on complex reasoning tasks. A natural hypothesis is that weighting or regularizing policy gradient advantages by trajectory-level uncertainty could prevent policy collapse and filter noisy exploration traces.
+This repository contains implementation and reproducibility resources associated with:
 
-This repository provides the complete, open-source experimental and architectural audit evaluating uncertainty-weighted credit assignment in LLM reinforcement learning. Through an extensive empirical investigation across seven phases, we discover that:
-1. Common **Monte Carlo (MC) dropout** assumptions become degenerate on zero-dropout architectures.
-2. Internal confidence proxies (token predictive entropy, sequence negative log-likelihood, and logit margin) are strongly confounded with **derivation length and reasoning complexity**, penalizing correct multi-step reasoning.
-3. While external **Self-Consistency consensus** provides unconfounded offline error discrimination ($\text{AUROC} = 0.812$), a preregistered 5-way controlled RL experiment proves that injecting consensus weights into the policy gradient inner loop yields **zero performance advantage** over standard outcome-supervised GRPO.
+**When Confidence Proxies Confound Reasoning Complexity: Pitfalls of
+Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning**<br>
+Sham Thakare, Independent Researcher<br>
+Submitted to *IEEE Transactions on Artificial Intelligence* on 13 August 2026<br>
+Manuscript ID: `TAI-2026-Aug-A-01875`
 
----
+This identifier is a submission-system manuscript ID, not a DOI. There is no verified
+DOI, acceptance notice, publication date, or IEEE Xplore page. The work is therefore
+described as **submitted**, not accepted or published. See
+[IEEE alignment](docs/ieee-paper.md) and [citation metadata](CITATION.cff).
 
-## Research Questions
+## Scope and current evidence status
 
-* **RQ1 (Estimator Validity)**: Does hidden-state MC-dropout probing produce meaningful stochastic representations on modern zero-dropout LLMs?
-* **RQ2 (Diagnostic Confounding)**: Do internal token-level confidence proxies distinguish mathematical reasoning errors from legitimate reasoning complexity?
-* **RQ3 (Offline vs. Online Translation)**: Does a validated offline error predictor (Self-Consistency) improve online reinforcement learning policy optimization over outcome-supervised baselines?
-* **RQ4 (Methodological Controls)**: What negative controls are strictly necessary before attributing policy learning improvements to confidence-guided credit assignment?
+The research began by testing Epistemic Advantage Regularization (EAR-GRPO), which
+multiplies group-relative advantages by an exponential function of a trajectory-level
+uncertainty proxy. Later phases investigated confidence proxies and Consistency-Aware
+GRPO (CA-GRPO), including negative controls.
 
----
+The original public commit was not independently reproducible: the model wrapper had
+been ignored by Git, CI referenced a missing dependency file, a five-example synthetic
+fallback was indexed as if it were a larger benchmark, and the raw Phase VII validation
+artifact referenced by the result ledger was absent. Accordingly:
 
-## Key Scientific Findings
+- historical experiment outputs remain available for auditability;
+- they are not advertised here as verified benchmark evidence;
+- `results/FINAL_CANONICAL_RESULTS.json` now records the provenance gap;
+- deterministic smoke tests validate software behavior only.
 
-```
-====================================================================================================
-CANONICAL SUMMARY OF SCIENTIFIC FINDINGS
-====================================================================================================
-C1 — Architectural Finding:
-  Evaluated causal transformer architectures (Qwen2.5) contain 0 active interior nn.Dropout
-  modules in their attention and MLP blocks (attention_dropout = 0.0). Consequently, MC-dropout
-  probes produce deterministic passes (Var = 0.0), reducing advantages to floating-point noise.
+This does not assert that the submitted manuscript's findings are false. It states that
+the current public artifact cannot regenerate those findings without the missing raw
+provenance.
 
-C2 — Diagnostic Confounding Finding:
-  Internal token predictive entropy (r = +0.486), mean token NLL (r = +0.432), and logit margins
-  (r = +0.495) strongly track sequence length. In stress tests, token predictive entropy misidentifies
-  correct complex multi-step reasoning as more "uncertain" than short incorrect errors in 42.1% of cases.
+## Research findings
 
-C3 — Algorithmic Falsification Finding:
-  In a preregistered 5-way controlled RL experiment across 3 matched seeds, Consistency-Aware GRPO
-  (CA-GRPO) achieves identical test accuracy to Standard GRPO (80.00% vs 80.00%; Delta = 0.00%),
-  and is matched by stochastic permutation controls (80.00%). High offline error predictability
-  does not translate into online reinforcement learning credit utility.
-====================================================================================================
-```
+- **Hypothesis:** uncertainty-weighted advantages might suppress unreliable positive
+  rollouts and stabilize GRPO.
+- **Recorded observation:** the archived investigation reports that MC-dropout is
+  degenerate for the evaluated zero-dropout architecture and that several internal
+  confidence proxies covary with derivation length and arithmetic complexity.
+- **Interpretation:** confidence weighting can penalize difficult or multi-step reasoning
+  rather than isolate erroneous reasoning, so offline predictive value alone is not
+  evidence of useful online credit assignment.
+- **Limitation:** the raw Phase VII artifact needed to independently regenerate the
+  manuscript tables is absent. These observations are therefore historical research
+  findings, not newly reproduced results from this checkout.
 
----
+## Method
 
-## Canonical Results Summary
+For rewards \(r_i\) within a rollout group, the GRPO advantage is
 
-### 1. Offline Diagnostic Benchmark (Untouched GSM8K $N=100$)
+\[
+A_i = \frac{r_i - \mu_r}{\sigma_r + \epsilon}.
+\]
 
-Evaluated over $N = 100$ independent prompt clusters ($98$ degrees of freedom) on untouched held-out data:
+Zero-variance and singleton groups return zero because they contain no relative reward
+information. The EAR implementation evaluates the submitted weighting form
 
-| Candidate Proxy | Error AUROC | Error AUPRC | $r(\text{Error})$ | $r(\text{Length})$ | Partial $r(\text{Corr} \mid \text{Length})$ | Stress Test Inversion Rate |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Self-Consistency ($K=4$)** | **0.812** | **0.694** | **$+0.582$** | $+0.114$ | **$-0.569$ ($p < 10^{-9}$)** | **$< 8.2\%$** |
-| **Token Predictive Entropy** | 0.618 | 0.412 | $+0.214$ | **$+0.486$** | $-0.092$ ($p = 0.365$) | **$42.1\%$** |
-| **Mean Token NLL** | 0.605 | 0.398 | $+0.198$ | **$+0.432$** | $-0.081$ ($p = 0.422$) | **$39.4\%$** |
-| **Logit Margin Uncertainty** | 0.624 | 0.420 | $+0.226$ | **$+0.495$** | $-0.104$ ($p = 0.303$) | **$41.7\%$** |
+\[
+\widetilde{A}_i = A_i \exp\left(-\gamma U_i / (\sigma_U + \epsilon)\right).
+\]
 
-### 2. Preregistered Online RL Control Matrix ($N=3$ Matched Seeds)
+The implementation evaluates this expression literally, including when uncertainty is
+constant. The token-level GRPO objective uses frozen rollout probabilities, clipping,
+completion/EOS masks, sequence-balanced reduction, and a documented non-negative
+sampled KL estimator. See [methodology](docs/methodology.md).
 
-Post-training evaluation under canonical unconstrained 256-token budget on held-out GSM8K:
-
-| Method | Group Size ($G$) | Rollout Weighting Mechanism | Held-Out Pass@1 (Mean $\pm$ SD) | Train Mean Reward | Policy Entropy | KL Divergence (nats/tok) |
-| :--- | :---: | :--- | :---: | :---: | :---: | :---: |
-| **Standard-GRPO** | 4 | Standard unweighted normalized advantage | $80.00 \pm 0.00\%$ | 0.12 | 1.2059 | 0.0015 |
-| **Compute-Matched-GRPO** | 8 | Equalized total rollout budget | $78.33 \pm 2.89\%$ | 0.26 | 1.2199 | 0.0015 |
-| **Random-Weight-Control** | 4 | Random Gaussian noise advantage scaling | $75.00 \pm 5.00\%$ | 0.21 | 1.1381 | 0.0369 |
-| **Permuted-Control** | 4 | Shuffled consensus weights | $80.00 \pm 0.00\%$ | 0.29 | 1.1440 | 0.1390 |
-| **CA-GRPO (Proposed)** | 4 | True sample-level consensus weighting | **$80.00 \pm 0.00\%$** | 0.12 | 1.2059 | 0.0015 |
-
----
-
-## Transparent Negative Results & Research Integrity
-
-This project upholds full scientific transparency:
-* **Falsified Algorithmic Hypothesis**: Rather than cherry-picking intermediate pilot runs, we report the true negative finding that sample-level consensus weighting yields $\Delta = 0.00\%$ over standard outcome-supervised GRPO.
-* **Negative Controls**: Inclusion of permuted and random controls demonstrated that advantage weighting dynamics can produce stochastic fluctuations that must not be mistaken for algorithmic superiority.
-* **Open Forensic Audit**: All intermediate audit logs, noise propagation proofs, and claim invalidation registers are permanently archived in the repository under [`research/`](./research/).
-
----
-
-## Scientific Audit Trail
-
-```
-Phase I: Forensic Detection of Synthetic Numbers
-   └── Discovered synthetic placeholder metrics -> formally invalidated and retracted.
-
-Phase II & III: Real Model Infrastructure
-   └── Verified baseline model accuracy (80.00% Pass@1 on GSM8K with Qwen2.5-0.5B-Instruct).
-
-Phase IV: Controlled Multi-Seed Matrix
-   └── First 5-method controlled benchmark -> identified 48-token generation truncation bug.
-
-Phase V: Architecture & Estimator Audit
-   └── Proved 0 active nn.Dropout layers exist in Qwen2 -> proved MC-dropout probe was deterministic.
-
-Phase VI: Uncertainty Proxy Discovery & Complexity Confound
-   └── Discovered token entropy correlates strongly with sequence length (r = +0.486).
-
-Phase VII: Causal Validation & Preregistered RL Matrix
-   └── Validated self-consistency offline (AUROC = 0.812), but preregistered CA-GRPO
-       matched Standard GRPO (Delta = 0.00%), confirming offline error prediction != online RL utility.
+```mermaid
+flowchart LR
+    C[Validated config] --> D[Explicit dataset source]
+    D --> P[Prompt and rollout generation]
+    P --> V[Numeric verifier rewards]
+    P --> U[Optional uncertainty probe]
+    V --> A[Group-relative advantages]
+    U --> A
+    A --> O[Masked GRPO objective]
+    O --> M[Policy update]
+    M --> E[Structured evaluation output]
 ```
 
----
+## Installation
 
-## Reproducing the Results
-
-### 1. Environment Setup
+Python 3.10–3.12 is supported. The verified offline path uses PyTorch, NumPy, and PyYAML:
 
 ```bash
-git clone https://github.com/shamddd/ear_grpo_reasoning.git
-cd ear_grpo_reasoning
-
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -e ".[dev]"
+python -m pip check
 ```
 
-### 2. Run Test Suite
+Historical Hugging Face experiments additionally require the `research` extra and model
+or dataset downloads. They are not part of the lightweight CI gate.
+
+## Quick start
+
+Run the deterministic CPU training smoke test:
 
 ```bash
-PYTHONPATH=. pytest tests/ -v
+python -m ear_grpo_reasoning.smoke_train --config configs/smoke.yaml
+python -m ear_grpo_reasoning.smoke_train --config configs/ear_smoke.yaml
 ```
 
-### 3. Reproduce Architectural & Estimator Audit
+Run the deterministic verifier/evaluation smoke test:
 
 ```bash
-PYTHONUNBUFFERED=1 PYTHONPATH=. python3 experiments/audit_uncertainty_and_dropout.py
+python -m ear_grpo_reasoning.evaluate --config configs/evaluation.yaml
 ```
 
-### 4. Reproduce Diagnostic Benchmark & Stress Test
+These commands write Git-ignored JSON under `results/generated/`. Their output says
+`software-verification-only`; neither command reproduces IEEE benchmark numbers.
+
+## Reproducibility levels
+
+- **Level A — software reproducibility:** verified installation, tests, GRPO/EAR smoke
+  paths, evaluation schema, dataset adapter, and tiny-model integration.
+- **Level B — experimental reproduction:** requires immutable model and dataset
+  revisions, seeds, hyperparameters, hardware/software inventory, checkpoints, and raw
+  logs. Those inputs are incomplete for the historical paper experiments.
+- **Level C — paper-number reproduction:** not currently claimable because the original
+  provenance is incomplete and the full experiments have not been rerun.
+
+The detailed gate and manifest requirements are in [docs/reproduction.md](docs/reproduction.md).
+
+## Development verification
 
 ```bash
-PYTHONUNBUFFERED=1 PYTHONPATH=. python3 experiments/run_phase7_causal_validation.py
+ruff check .
+ruff format --check .
+mypy -p ear_grpo_reasoning
+pytest -q
+python -c "import ear_grpo_reasoning"
 ```
 
-### 5. Reproduce 5-Way Controlled RL Matrix
+CI installs, tests, and runs the smoke paths on Python 3.10, 3.11, and 3.12. Static type
+checking runs once against the minimum supported Python 3.10 grammar. See
+[reproduction](docs/reproduction.md) for the clean verification protocol.
 
-```bash
-PYTHONUNBUFFERED=1 PYTHONPATH=. python3 experiments/run_phase7_cagrpo_matrix.py
-```
+## Configuration
 
----
+- `configs/smoke.yaml`: deterministic offline objective training.
+- `configs/ear_smoke.yaml`: deterministic offline EAR-weighted objective training.
+- `configs/evaluation.yaml`: deterministic offline verifier evaluation.
+- `configs/baseline.yaml`: GRPO research template; model/data revisions must be filled.
+- `configs/ear_grpo.yaml`: EAR-GRPO research template; revisions must be filled.
+- `configs/tier1_dev.yaml` and `configs/tier2_main.yaml`: historical configurations;
+  they predate the strict schema and are preserved only for auditability.
 
-## Compute Requirements & Hardware
+Unknown keys and invalid group/rollout relationships fail fast. External adapters accept
+immutable model and dataset revisions, and every structured output includes a SHA-256
+hash of the fully resolved configuration.
 
-* **Hardware Used**: Apple Silicon M1 (8 CPU threads) / Standard x86_64 CPU (16GB RAM).
-* **GPU Compatibility**: Fully compatible with NVIDIA CUDA devices via PyTorch `device="cuda"`.
-* **Disk Space**: $\approx 1.5\text{ GB}$ for base model weights (`Qwen/Qwen2.5-0.5B-Instruct`) and execution logs.
-
----
-
-## Models & Datasets
-
-* **Model**: [`Qwen/Qwen2.5-0.5B-Instruct`](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) (`Qwen2ForCausalLM`).
-* **Datasets**:
-  - **GSM8K**: Grade School Math 8K dataset (train: indices 0–499; held-out confirmatory test: indices 800–899).
-  - **SVAMP**: Challenging out-of-distribution word problem benchmark for cross-dataset validation.
-
----
-
-## Repository Structure
+## Repository structure
 
 ```text
-ear_grpo_reasoning/
-├── CITATION.bib                  # BibTeX citation metadata
-├── CITATION.cff                  # CFF citation metadata
-├── LICENSE                       # MIT License
-├── README.md                     # Research overview and results summary
-├── REPRODUCIBILITY.md            # Detailed reproduction guide
-├── pyproject.toml                # Build configuration and pytest settings
-├── requirements.txt              # Pinned Python dependencies
-├── experiments/                  # Reproducible experimental benchmark runners
-│   ├── audit_uncertainty_and_dropout.py
-│   ├── run_phase7_causal_validation.py
-│   └── run_phase7_cagrpo_matrix.py
-├── research/                     # Formal mathematical proofs, audits, and ledgers
-│   ├── DROPOUT_ARCHITECTURE_AUDIT.md
-│   ├── NUMERICAL_NOISE_PROPAGATION.md
-│   ├── PHASE7_RL_PREREGISTRATION.md
-│   └── UNCERTAINTY_PROXY_BENCHMARK.md
-├── results/                      # Canonical single source of truth and raw data
-│   ├── FINAL_CANONICAL_RESULTS.json
-│   └── raw/
-├── src/                          # Core PyTorch RL and policy implementation
-│   ├── models/policy.py          # Transformer reasoning policy & reference policy
-│   ├── rl/grpo_trainer.py        # Standard GRPO baseline trainer
-│   └── rl/rewards.py             # Verifier & symbolic reward extraction
-├── submission/ieee_tai/          # IEEE TAI manuscript artifacts and metadata
-│   ├── main.tex
-│   ├── references.bib
-│   ├── Title_Page.docx
-│   └── Anonymized_Main_Document.pdf
-└── tests/                        # Unit and verifier test suite
+configs/                         Strict configs plus historical templates
+docs/                            Method, architecture, reproduction, IEEE alignment
+experiments/                     Historical compute-intensive research scripts
+research/                        Historical hypotheses, audits, and claim ledgers
+results/                         Provenance status, schema, raw and archived artifacts
+src/ear_grpo_reasoning/          Maintained installable Python package
+submission/ieee_tai/             Submitted-manuscript package and metadata
+tests/                           Offline scientific and regression tests
 ```
 
----
+Historical scripts are retained to avoid hiding the research trail. They are not CI
+entry points and must not be used to reinstate claims until the provenance requirements
+in [results/README.md](results/README.md) are satisfied.
+
+## Research engineering contributions
+
+Sham Thakare — Independent Researcher
+
+- EAR uncertainty-weighted advantage implementation and degeneracy analysis
+- GRPO clipped-objective and reference-policy pipeline
+- MC-dropout uncertainty probing with zero-dropout validation
+- deterministic configuration, seeding, and structured evaluation
+- explicit benchmark adapters without silent synthetic fallback
+- negative-control and provenance-oriented research validation
+
+## Evaluation integrity
+
+The maintained evaluation entry point accepts either the labeled built-in smoke fixture
+or an explicit JSONL prediction file. It reports metric mean, sample standard deviation,
+sample count, seed, model, dataset, split, and configuration hash. The output schema is
+[`results/schema.json`](results/schema.json).
+
+## Reproducibility and hardware
+
+The verified smoke path is CPU-only, requires no API key, and downloads no model or
+dataset. Full model experiments require substantially more memory, disk, and runtime;
+requirements depend on the selected model and are not inferred from the smoke tests.
+CUDA can introduce nondeterministic operations; deterministic mode fails instead of
+silently falling back when PyTorch cannot provide a deterministic kernel.
 
 ## Limitations
 
-1. **Seed Count**: Online RL training evaluations were conducted across $N = 3$ matched independent seeds.
-2. **Task Scope**: Focused on mathematical step-by-step reasoning (GSM8K, SVAMP) using `Qwen2.5-0.5B-Instruct`.
-3. **Inference Compute**: Self-Consistency requires generating $K \ge 4$ rollouts per prompt during inference.
-4. **Formulation Scope**: Our experiments evaluated specific linear advantage weighting functions and do not exclude the possibility that alternative credit assignment formulations could yield different dynamics.
-
----
+- The public artifact lacks the raw Phase VII prompt-level evidence referenced by the
+  historical ledger.
+- Historical result files mix exploratory phases and generation budgets; they are not
+  an active benchmark table.
+- The numeric verifier intentionally does not claim general symbolic equivalence.
+- The smoke model verifies gradients and masking but is not a language model benchmark.
+- Full external-model training and paper-result reproduction require a separately
+  restored, provenance-complete experiment bundle.
 
 ## Citation
 
-If you use this research codebase or reference our findings, please cite:
+Until a DOI or publication record exists, cite the software using `CITATION.cff`. The
+associated manuscript was submitted on 13 August 2026 under manuscript ID
+`TAI-2026-Aug-A-01875`; `CITATION.bib` records that submission metadata without implying
+acceptance or publication.
 
-```bibtex
-@misc{thakare2026confidence,
-  title        = {When Confidence Proxies Confound Reasoning Complexity: Pitfalls of Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning},
-  author       = {Sham Thakare},
-  year         = {2026},
-  month        = {August},
-  note         = {Manuscript submitted to IEEE Transactions on Artificial Intelligence},
-  url          = {https://github.com/shamddd/ear_grpo_reasoning},
-  howpublished = {Open-source research artifact}
-}
-```
+## License and contributing
 
----
-
-## License
-
-This project is open-source software licensed under the [MIT License](./LICENSE). Base models and benchmark datasets retain their original respective open-source licenses.
+Code is licensed under the [MIT License](LICENSE). Models, datasets, the IEEE class file,
+and manuscript content may have separate terms. Contributions should include tests,
+document the evidence scope, and avoid adding generated benchmark outputs without raw
+provenance. See [CONTRIBUTING.md](CONTRIBUTING.md).

@@ -1,0 +1,32 @@
+experiment:
+  name: deterministic-grpo-smoke
+  seed: 42
+  deterministic: true
+  device: cpu
+model:
+  name: builtin-tiny-causal-lm
+  revision: builtin-v1
+  max_prompt_tokens: 8
+  max_response_tokens: 5
+  temperature: 0.7
+  top_p: 0.95
+data:
+  name: builtin-smoke-v1
+  split: verification
+  revision: builtin-v1
+algorithm:
+  mode: grpo
+  group_size: 4
+  rollout_count: 4
+  clip_epsilon: 0.2
+  kl_beta: 0.04
+  gamma_epistemic: 0.35
+  learning_rate: 0.01
+  batch_size: 4
+  epochs: 4
+  gradient_accumulation_steps: 1
+  checkpoint_interval: 0
+  evaluation_interval: 1
+evaluation:
+  output_dir: results/generated/training-smoke
+  predictions_path:

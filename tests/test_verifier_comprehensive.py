@@ -1,6 +1,7 @@
-from src.rl.rewards import extract_answer, compute_math_reward
+from ear_grpo_reasoning.rewards import compute_math_reward
 
-def test_verifier_comprehensive_cases():
+
+def test_verifier_comprehensive_cases() -> None:
     # 30 Explicit test cases: 15 Valid, 15 Invalid/Tricky
     valid_cases = [
         ("The answer is 42.", "42", True),
@@ -38,12 +39,8 @@ def test_verifier_comprehensive_cases():
         ("#### -5", "5", False),
     ]
 
-    print("\n--- Running 30-Case Verifier Audit ---")
     for text, gt, expected in valid_cases + invalid_cases:
-        r = compute_math_reward(text, gt)
-        is_correct = (r > 0.0)
-        assert is_correct == expected, f"Failed case: text='{text}', gt='{gt}', expected={expected}, got={is_correct}"
-
-if __name__ == "__main__":
-    test_verifier_comprehensive_cases()
-    print("All 30 verifier cases PASSED cleanly!")
+        is_correct = compute_math_reward(text, gt) > 0.0
+        assert is_correct == expected, (
+            f"Failed case: text={text!r}, gt={gt!r}, expected={expected}, got={is_correct}"
+        )
