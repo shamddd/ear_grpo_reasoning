@@ -22,13 +22,11 @@ This repository contains implementation and reproducibility resources associated
 **When Confidence Proxies Confound Reasoning Complexity: Pitfalls of
 Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning**<br>
 Sham Thakare, Independent Researcher<br>
-Submitted to *IEEE Transactions on Artificial Intelligence* on 13 August 2026<br>
-Manuscript ID: `TAI-2026-Aug-A-01875`
+**Research Status**: Working Paper / Research Note<br>
+**Target Venue**: *IEEE Transactions on Artificial Intelligence* (IEEE TAI)<br>
+**Historical repository metadata**: `TAI-2026-Aug-A-01875` (submission status / manuscript identifier requires primary-source verification).
 
-This identifier is a submission-system manuscript ID, not a DOI. There is no verified
-DOI, acceptance notice, publication date, or IEEE Xplore page. The work is therefore
-described as **submitted**, not accepted or published. See
-[IEEE alignment](docs/ieee-paper.md) and [citation metadata](CITATION.cff).
+There is no verified primary submission receipt, Author Gateway confirmation, DOI, acceptance notice, or IEEE Xplore page. The work is therefore conservatively classified as a **Working Paper / Research Note** targeting IEEE TAI. See [IEEE alignment](docs/ieee-paper.md) and [citation metadata](CITATION.cff).
 
 ## Scope and current evidence status
 

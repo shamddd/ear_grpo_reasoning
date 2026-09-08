@@ -5,9 +5,10 @@ Repository evidence identifies the associated work as:
 - **Title:** *When Confidence Proxies Confound Reasoning Complexity: Pitfalls of
   Uncertainty-Weighted Credit Assignment in Language Model Reinforcement Learning*
 - **Author:** Sham Thakare, Independent Researcher
-- **Venue/status:** submitted to *IEEE Transactions on Artificial Intelligence*
-- **Submission date:** 13 August 2026
-- **Manuscript ID:** `TAI-2026-Aug-A-01875`
+- **Target Venue:** *IEEE Transactions on Artificial Intelligence* (Target Venue)
+- **Research Status:** Working Paper / Research Note
+- **Historical metadata:** `TAI-2026-Aug-A-01875` (submission status / manuscript identifier requires primary-source verification)
+- **Submission date:** 13 August 2026 (Unverified metadata)
 - **DOI:** not present in the repository
 - **IEEE Xplore URL:** not present in the repository
 
