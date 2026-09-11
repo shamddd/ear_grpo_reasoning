@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite this repository. The associated manuscript is a Working Paper targeting IEEE TAI (Historical unverified metadata: TAI-2026-Aug-A-01875; submission status requires primary-source verification); it is not accepted or published."
 title: "EAR-GRPO Reasoning"
 type: software
-version: 0.2.0
+version: 1.1.0
 date-released: 2026-08-15
 authors:
   - family-names: "Thakare"

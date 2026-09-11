@@ -6,4 +6,4 @@ from ear_grpo_reasoning.algorithms.advantages import (
 )
 
 __all__ = ["compute_ear_advantages", "compute_group_advantages"]
-__version__ = "0.2.0"
+__version__ = "1.1.0"
